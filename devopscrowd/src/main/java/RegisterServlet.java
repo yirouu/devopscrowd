@@ -5,6 +5,7 @@ import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -58,8 +59,10 @@ public class RegisterServlet extends HttpServlet {
 			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/devops", "root", "password");
 			// Step 4: implement the sql query using prepared statement
 			// (https://docs.oracle.com/javase/tutorial/jdbc/basics/prepared.html)
+			PreparedStatement psc = con.prepareStatement(
+					"select * from user where email = ? ");
 			PreparedStatement ps = con.prepareStatement(
-					"insert into user (`name`, `email`, `password`, `role`, `address`, `postal`) values(?,?,?,?,?,?)");
+					"insert into user (`username`, `email`, `password`, `role`, `address`, `postal`) values(?,?,?,?,?,?)");
 			// Step 5: parse in the data retrieved from the web form request into the
 			// prepared statement accordingly
 			ps.setString(1, n);
@@ -68,13 +71,26 @@ public class RegisterServlet extends HttpServlet {
 			ps.setString(4, "user");
 			ps.setString(5, a);
 			ps.setString(6, c);
-			// Step 6: perform the query on the database using the prepared statement
-			int i = ps.executeUpdate(); // Step 7: check if the query had been successfully execute, return “You are
-										// successfully registered” via the response,
-			if (i > 0) {
-				PrintWriter writer = response.getWriter();
-				writer.println("<h1>" + "You have successfully registered an account!" + "</h1>");
-				writer.close();
+			
+			psc.setString(1, e);
+
+			ResultSet rsc = psc.executeQuery();
+			boolean hasResult = rsc.next();
+
+			if (!hasResult) {
+				// Step 6: perform the query on the database using the prepared statement
+				int i = ps.executeUpdate(); // Step 7: check if the query had been successfully execute, return “You are
+											// successfully registered” via the response,
+				if (i > 0) {
+					PrintWriter writer = response.getWriter();
+					writer.println("<h1>" + "You have successfully registered an account!" + "</h1>");
+					writer.close();
+				}
+			}
+			else {
+				PrintWriter writerpe = response.getWriter();
+				writerpe.println("<h1>" + "email in use!" + hasResult + e + "<h1>");
+				writerpe.close();
 			}
 		} // Step 8: catch and print out any exception
 		catch (Exception exception) {
