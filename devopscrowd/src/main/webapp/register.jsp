@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<%@ include file="navbar.jsp" %>
 <meta charset="ISO-8859-1">
 <title>Register</title>
 <link href="css/register.css" rel="stylesheet" type="text/css" />
