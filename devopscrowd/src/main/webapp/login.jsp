@@ -1,0 +1,34 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link href="css/login.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+	<form action="LoginServlet" method="post">
+
+		<h1>
+			Email: <br> <input type="text" name="yourEmail" size="20">
+		</h1>
+		<br>
+		<h1>
+			Password: <br> <input type="password" name="yourPassword"
+				size="20">
+		</h1>
+		<br>
+
+		<!-- Implement submit button with type = submit to perform the request when clicked -->
+		<div class="sbtn">
+			<input type="submit" value="Login" />
+		</div>
+		<br>
+		<h1>
+			<a href="<%=request.getContextPath()%>/register.jsp" class="nav-link">Don't
+				have an account? Register here!</a>
+		</h1>
+	</form>
+</body>
+</html>
