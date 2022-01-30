@@ -66,16 +66,17 @@ public class OrderServlet extends HttpServlet {
 
 		// Step 4: Depending on the request servlet path, determine the function to
 		// invoke using the follow switch statement.
+
 		String action = request.getServletPath();
 		try {
 			switch (action) {
-			case "/delete":
+			case "/OrderServlet/edit":
+				showEditForm(request, response);
 				break;
-			case "/edit":
+			case "/OrderServlet/update":
+				updateUser(request, response);
 				break;
-			case "/update":
-				break;
-			default:
+			case "/OrderServlet/dashboard":
 				listOrders(request, response);
 				break;
 			}
@@ -118,14 +119,66 @@ public class OrderServlet extends HttpServlet {
 				String email = rs.getString("email");
 				String address = rs.getString("address");
 				int postal = rs.getInt("postal");
-				orders.add(new Orders(orderid, orderDateTime, orderUserId, productId,orderStatus, productName, productPrice, productImage, username, email, address, postal));
+				orders.add(new Orders(orderid, orderDateTime, orderUserId, productId, orderStatus, productName,
+						productPrice, productImage, username, email, address, postal));
 			}
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 		}
-		// Step 5.4: Set the users list into the listUsers attribute to be pass to the orderManagement.jsp
+		// Step 5.4: Set the users list into the listUsers attribute to be pass to the
+		// orderManagement.jsp
 		request.setAttribute("listOrders", orders);
 		request.getRequestDispatcher("/orderManagement.jsp").forward(request, response);
 	}
+
+	// method to get parameter, query database for existing user data and redirect
+	// to user edit page
+	private void showEditForm(HttpServletRequest request, HttpServletResponse response)
+			throws SQLException, ServletException, IOException {
+		// get parameter passed in the URL
+		String orderid = request.getParameter("orderid");
+		Order existingOrder = new Order(0, "", 0, 0, "");
+		// Establishing a Connection
+		try (Connection connection = getConnection();
+				// Create a statement using connection object
+				PreparedStatement preparedStatement = connection.prepareStatement(SELECT_ORDER_BY_ID);) {
+			preparedStatement.setString(1, orderid);
+			// Execute the query or update query
+			ResultSet rs = preparedStatement.executeQuery();
+			// Process the ResultSet object
+			while (rs.next()) {
+				int orderId = rs.getInt("orderid");
+				String orderDateTime = rs.getString("orderDateTime");
+				int orderUserId = rs.getInt("orderUserId");
+				int productId = rs.getInt("productId");
+				String orderStatus = rs.getString("orderStatus");
+				existingOrder = new Order(orderId, orderDateTime, orderUserId, productId, orderStatus);
+			}
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+		// Step 5: Set existingUser to request and serve up the userEdit form
+		request.setAttribute("order", existingOrder);
+		request.getRequestDispatcher("/editOrder.jsp").forward(request, response);
+	}
+
+	// method to update the user table base on the form data
+	private void updateUser(HttpServletRequest request, HttpServletResponse response)
+	throws SQLException, IOException {
+	// Retrieve value from the request
+	String orderid = request.getParameter("orderid");
+	String orderStatus = request.getParameter("orderStatus");
+
+	 // Attempt connection with database and execute update user SQL query
+	 try (Connection connection = getConnection(); PreparedStatement statement =
+	connection.prepareStatement(UPDATE_ORDER_SQL);) {
+	 statement.setString(1, orderStatus);
+	 statement.setString(2, orderid);
+	 int i = statement.executeUpdate();
+	 }
+	 // redirect back to OrderServlet
+	 response.sendRedirect("http://localhost:8090/devopscrowd/OrderServlet/dashboard");
+	}
+
 
 }

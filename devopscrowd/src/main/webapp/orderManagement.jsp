@@ -61,11 +61,11 @@ information accordingly -->
 							<td><c:out value="${order.postal}" /></td>
 							<!-- For each user in the database, Edit/Delete
 buttons which invokes the edit/delete functions -->
-							<td><a href="edit?name=<c:out value='${user.orderid}'
+							<td><a href="edit?orderid=<c:out value='${order.orderid}'
 />">Edit</a>
 								&nbsp;&nbsp;&nbsp;&nbsp; <a
 								href="delete?name=<c:out
-value='${user.orderid}' />">Delete</a></td>
+value='${order.orderid}' />">Delete</a></td>
 						</tr>
 					</c:forEach>
 				</tbody>
