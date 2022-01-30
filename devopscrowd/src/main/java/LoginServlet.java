@@ -92,19 +92,25 @@ public class LoginServlet extends HttpServlet {
 					sessions.setAttribute("cuser", userid);
 					if (role.equals("admin")) {
 						sessions.setAttribute("loggedIn", "admin");
-						
+
 					} else {
 						sessions.setAttribute("loggedIn", "user");
-						
+
 					}
-					response.sendRedirect("/devopsgangz/profile.jsp");
-					
+					response.sendRedirect("/devopscrowd/index.jsp");
+
 				} else {
 					PrintWriter writerpe = response.getWriter();
-					writerpe.println("<h1>" + "wrongpw!" + userpassword + p + "<h1>");
+					writerpe.println("<h1>" + "wrongpassword!" + userpassword + "!="+ p + "<h1>");
 					writerpe.close();
-					
+
 				}
+
+			} else {
+				PrintWriter writerpe = response.getWriter();
+				writerpe.println("<h1>" + "wrongemail!" + e + "<h1>");
+				writerpe.close();
+
 			}
 		} // Step 8: catch and print out any exception
 		catch (Exception exception) {
