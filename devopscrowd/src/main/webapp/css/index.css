@@ -1,1 +1,57 @@
 @charset "ISO-8859-1";
+
+/* Create two equal columns that floats next to each other */
+.column {
+	float: left;
+	width: 50%;
+	height: 700px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+.column img {
+	width: 100%;
+	height: 700px;
+	object-fit: cover;
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+	.column {
+		width: 100%;
+	}
+	h1 {
+		top: 450px;
+	}
+}
+
+.contents {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 500px;
+	margin: 0 auto;
+}
+
+h1 {
+	font-family: 'Domine', serif;
+	font-weight: 600;
+	text-align: center;
+	color: white;
+	font-size: 60px;
+}
+
+p {
+	text-align: center;
+	color: white;
+	top: 540px;
+}
+.btn{
+	width:170px;
+	text-transform: uppercase;
+}
