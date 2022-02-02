@@ -56,8 +56,8 @@ public class LoginServlet extends HttpServlet {
 		String e = request.getParameter("yourEmail");
 		String p = request.getParameter("yourPassword");
 		// Step 3: attempt connection to database using JDBC, you can change the
-		// username and password accordingly using the phpMyAdmin > User Account
-		// dashboard
+		// username and password accordingly using the phpMyAdmin > User Account dashboard
+		
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/devops", "root", "password");
@@ -89,15 +89,20 @@ public class LoginServlet extends HttpServlet {
 					String role = rsr.getString(1);
 
 					HttpSession sessions = request.getSession();
+					
 					sessions.setAttribute("cuser", userid);
+					
+					sessions.setAttribute("isLoggedIn", "LoggedIn");
+					
 					if (role.equals("admin")) {
-						sessions.setAttribute("loggedIn", "admin");
+						
+						sessions.setAttribute("role", "admin");
 
 					} else {
-						sessions.setAttribute("loggedIn", "user");
+						sessions.setAttribute("role", "user");
 
 					}
-					response.sendRedirect("/devopscrowd/index.jsp");
+					response.sendRedirect("/devopscrowd/product.jsp");
 
 				} else {
 					PrintWriter writerpe = response.getWriter();
