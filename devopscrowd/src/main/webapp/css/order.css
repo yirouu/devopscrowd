@@ -1,0 +1,95 @@
+@charset "ISO-8859-1";
+
+body {
+	background-color: #F5F9FA;
+}
+
+h3 {
+	font-family: 'Poppins', sans-serif;
+	text-transform: uppercase;
+	font-weight: 600;
+}
+
+table {
+	border-spacing: 10px;
+}
+
+th {
+	color: lightgray;
+	font-family: 'Poppins', sans-serif;
+	font-weight: 400;
+	font-size: 13px;
+	border: 0 px;
+}
+
+td {
+	background-color: white;
+	font-family: 'Poppins', sans-serif;
+	font-size: 13px;
+}
+
+tr {
+	height: 60px;
+}
+
+.image {
+	width: 140px;
+	height: 280px;
+	object-fit: cover;
+}
+
+.pending {
+	background-color: #FEF7EA;
+	text-align: center;
+	width: 150px;
+	border-radius: 15px;
+	color: #CCB579;
+	height: 30px;
+	position: relative;
+	top: 3px;
+}
+
+.confirm {
+	background-color: #D9F8F0;
+	text-align: center;
+	width: 150px;
+	border-radius: 15px;
+	color: #15D4A1;
+	height: 30px;
+	position: relative;
+	top: 3px;
+}
+
+p {
+	position: relative;
+	top: 10px;
+}
+
+.fa-pencil {
+	color: #A0A5B0;
+	font-size: 14px;
+}
+
+.fa-close {
+	color: #A0A5B0;
+	font-size: 14px;
+}
+
+.fa-check {
+	font-size: 12px;
+	margin-top: 10px;
+}
+
+.fa-exclamation {
+	font-size: 12px;
+	margin-top: 10px;
+}
+
+i+span {
+	margin-left: 20px;
+}
+
+.btn {
+	background-color: #EDF0F6;
+	border-radius: 25px;
+}
