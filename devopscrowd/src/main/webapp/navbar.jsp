@@ -6,8 +6,9 @@
 
 <%
 HttpSession sessions = request.getSession();
-%><%
-String isLoggedIn = (String)sessions.getAttribute("isLoggedIn");
+%>
+<%
+String isLoggedIn = (String) sessions.getAttribute("isLoggedIn");
 %>
 
 <nav class="navbar navbar-expand-md navbar-light">
@@ -23,12 +24,11 @@ String isLoggedIn = (String)sessions.getAttribute("isLoggedIn");
 	if (isLoggedIn != null && isLoggedIn.equals("LoggedIn")) {
 	%>
 	<ul class="navbar-nav ms-auto">
-		<li><a href="<%=request.getContextPath()%>/register.jsp"
+		<li><a href="<%=request.getContextPath()%>/UserServlet/logout"
 			class="nav-link">Logout</a></li>
 	</ul>
 	<%
-	} 
-else {
+	} else {
 	%>
 	<ul class="navbar-nav ms-auto">
 		<li><a href="<%=request.getContextPath()%>/register.jsp"
