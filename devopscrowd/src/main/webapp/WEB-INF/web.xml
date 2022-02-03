@@ -23,5 +23,6 @@
 		<url-pattern>/OrderServlet/dashboard</url-pattern>
 		<url-pattern>/OrderServlet/edit</url-pattern>
 		<url-pattern>/OrderServlet/update</url-pattern>
+		<url-pattern>/OrderServlet/delete</url-pattern>
 	</servlet-mapping>
 </web-app>
