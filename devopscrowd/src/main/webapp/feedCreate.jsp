@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Feedback Form</title>
 </head>
 <body>
 <form action="FeedbackServlet" method="post">
@@ -15,7 +15,8 @@
 		<option>Very Good</option>
 		<option>Excellent</option>
 	</select>
-	<input type="submit" value="Call Servlet"/>
+	<input type="submit" value="Submit"/>
+	 
 	
 </form>
 
