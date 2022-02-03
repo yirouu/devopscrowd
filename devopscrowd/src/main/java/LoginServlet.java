@@ -97,12 +97,13 @@ public class LoginServlet extends HttpServlet {
 					if (role.equals("admin")) {
 						
 						sessions.setAttribute("role", "admin");
+						response.sendRedirect("/devopscrowd/admin.jsp");
 
 					} else {
 						sessions.setAttribute("role", "user");
-
+						response.sendRedirect("/devopscrowd/product.jsp");
 					}
-					response.sendRedirect("/devopscrowd/product.jsp");
+					
 
 				} else {
 					PrintWriter writerpe = response.getWriter();
