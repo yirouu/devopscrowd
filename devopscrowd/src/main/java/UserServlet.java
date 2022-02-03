@@ -1,5 +1,6 @@
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -69,19 +70,27 @@ public class UserServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		// Step 4: Depending on the request servlet path, determine the function to
 		// invoke using the follow switch statement.
-	
+
 		String action = request.getServletPath();
-		 try {
-		 switch (action) {
+		try {
+			switch (action) {
+		
+			case "/delete":
+				break;
+			case "/edit":
+				break;
+			case "/update":
+				break;
 			/*
 			 * case "/UserServlet/delete": deleteUser(request, response); break; case
 			 * "/UserServlet/edit": showEditForm(request, response); break; case
 			 * "/UserServlet/update": updateUser(request, response); break;
 			 */
-		 case "/UserServlet/dashboard":
-		 listUsers(request, response);
-		 break;
-		 case "/UserServlet/logout":
+
+			case "/UserServlet/dashboard":
+				GetUser(request, response);
+				break;
+			case "/UserServlet/logout":
 				// delete session
 				HttpSession sessions = request.getSession();
 				response.sendRedirect(request.getContextPath() + "/login.jsp");
@@ -90,10 +99,10 @@ public class UserServlet extends HttpServlet {
 				sessions.setAttribute("role", null);
 				sessions.invalidate();
 				break;
-		 }
-		 } catch (SQLException ex) {
-		 throw new ServletException(ex);
-		 }
+			}
+		} catch (SQLException ex) {
+			throw new ServletException(ex);
+		}
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
@@ -109,31 +118,34 @@ public class UserServlet extends HttpServlet {
 
 	// Step 5: listUsers function to connect to the database and retrieve all users
 	// records
-	private void listUsers(HttpServletRequest request, HttpServletResponse response)
+	private void GetUser(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
-		List<User> users = new ArrayList<>();
+		List<User> cuser = new ArrayList<>();
 		try (Connection connection = getConnection();
 				// Step 5.1: Create a statement using connection object
-				PreparedStatement preparedStatement = connection.prepareStatement(SELECT_ALL_USERS);) {
+				PreparedStatement preparedStatement = connection.prepareStatement(SELECT_USER_BY_ID);) {
+			HttpSession sessions = request.getSession();
+			String cuserid = (String) sessions.getAttribute("cuser");
+			preparedStatement.setString(1, cuserid);
 			// Step 5.2: Execute the query or update query
 			ResultSet rs = preparedStatement.executeQuery();
 			// Step 5.3: Process the ResultSet object.
-			while (rs.next()) {
-				int userid = rs.getInt("userid");
-				String username = rs.getString("username");
-				String email = rs.getString("email");
-				String password = rs.getString("password");
-				String role = rs.getString("role");
-				String address = rs.getString("address");
-				int postal = rs.getInt("postal");
-				users.add(new User(userid, username, email, password, role, address, postal));
-			}
+			rs.next();
+			int userid = rs.getInt("userid");
+			String username = rs.getString("username");
+			String email = rs.getString("email");
+			String password = rs.getString("password");
+			String role = rs.getString("role");
+			String address = rs.getString("address");
+			int postal = rs.getInt("postal");
+			cuser.add(new User(userid, username, email, password, role, address, postal));
+
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 		}
 		// Step 5.4: Set the users list into the listUsers attribute to be pass to the
 		// userprofile.jsp
-		request.setAttribute("listUsers", users);
+		request.setAttribute("GetUser", cuser);
 		request.getRequestDispatcher("/userprofile.jsp").forward(request, response);
 	}
 
