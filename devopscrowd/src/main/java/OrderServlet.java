@@ -74,7 +74,10 @@ public class OrderServlet extends HttpServlet {
 				showEditForm(request, response);
 				break;
 			case "/OrderServlet/update":
-				updateUser(request, response);
+				updateOrder(request, response);
+				break;
+			case "/OrderServlet/delete":
+				deleteOrder(request, response);
 				break;
 			case "/OrderServlet/dashboard":
 				listOrders(request, response);
@@ -163,7 +166,7 @@ public class OrderServlet extends HttpServlet {
 	}
 
 	// method to update the user table base on the form data
-	private void updateUser(HttpServletRequest request, HttpServletResponse response)
+	private void updateOrder(HttpServletRequest request, HttpServletResponse response)
 	throws SQLException, IOException {
 	// Retrieve value from the request
 	String orderid = request.getParameter("orderid");
@@ -177,6 +180,21 @@ public class OrderServlet extends HttpServlet {
 	 int i = statement.executeUpdate();
 	 }
 	 // redirect back to OrderServlet
+	 response.sendRedirect("http://localhost:8090/devopscrowd/OrderServlet/dashboard");
+	}
+	
+	// method to delete order
+	private void deleteOrder(HttpServletRequest request, HttpServletResponse response)
+	throws SQLException, IOException {
+	//Step 1: Retrieve value from the request
+	 String orderid = request.getParameter("orderid");
+	 //Step 2: Attempt connection with database and execute delete order SQL query
+	 try (Connection connection = getConnection(); PreparedStatement statement =
+	connection.prepareStatement(DELETE_ORDER_SQL);) {
+	 statement.setString(1, orderid);
+	 int i = statement.executeUpdate();
+	 }
+	 //Step 3: redirect back to OrderServlet dashboard
 	 response.sendRedirect("http://localhost:8090/devopscrowd/OrderServlet/dashboard");
 	}
 
