@@ -205,6 +205,6 @@ public class UserServlet extends HttpServlet {
 		}
 		// Step 3: redirect back to UserServlet (note: remember to change the url to
 		// your project name)
-		response.sendRedirect("request.getContextPath()" + "/UserServlet/dashboard");
+		response.sendRedirect("/devopscrowd/UserServlet/dashboard");
 	}
 }
