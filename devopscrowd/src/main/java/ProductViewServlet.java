@@ -31,7 +31,7 @@ public class ProductViewServlet extends HttpServlet {
 	private static final String SELECT_PRODUCT_BY_ID = "select productId,name,price,image,description,quantity from product where productId =?";
 	private static final String SELECT_ALL_PRODUCTS = "select * from product ";
 	private static final String DELETE_PRODUCTS_SQL = "delete from product where productId = ?;";
-	private static final String UPDATE_PRODUCTS_SQL = "update product set productId =?,name = ?,price= ?, image =?,description =?,quantity = ? where productId = ?;";
+	private static final String UPDATE_PRODUCTS_SQL = "update product set productId =?,name = ?,price= ?, image =?,description =? where productId = ?;";
 
 	//Implement the getConnection method which facilitates connection to the database via JDBC
 	protected Connection getConnection() {
