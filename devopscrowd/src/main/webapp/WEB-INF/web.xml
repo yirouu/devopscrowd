@@ -27,12 +27,14 @@
 		<url-pattern>/OrderServlet/dashboard</url-pattern>
 		<url-pattern>/OrderServlet/edit</url-pattern>
 		<url-pattern>/OrderServlet/update</url-pattern>
+		<url-pattern>/OrderServlet/delete</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>UserServlet</servlet-name>
 		<url-pattern>/UserServlet/logout</url-pattern>
 		<url-pattern>/UserServlet/edit</url-pattern>
 		<url-pattern>/UserServlet/update</url-pattern>
+		<url-pattern>/UserServlet/delete</url-pattern>
 		<url-pattern>/UserServlet/dashboard</url-pattern>
 	</servlet-mapping>
 </web-app>
