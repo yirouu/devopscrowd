@@ -10,7 +10,7 @@
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
 	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
 	crossorigin="anonymous">
-
+<%@ include file="navbar.jsp" %>
 </head>
 <body>
 	<div class="row">
@@ -29,8 +29,6 @@
 					<tr>
 						<th>Name</th>
 						<th>Email</th>
-						<th>Password</th>
-						<th>Role</th>
 						<th>Address</th>
 						<th>Postal</th>
 
@@ -43,15 +41,13 @@
 						<tr>
 							<td><c:out value="${user.username}" /></td>
 							<td><c:out value="${user.email}" /></td>
-							<td><c:out value="${user.password}" /></td>
-							<td><c:out value="${user.role}" /></td>
 							<td><c:out value="${user.address}" /></td>
 							<td><c:out value="${user.postal}" /></td>
 							<!-- For each user in the database, Edit/Delete buttons
 								which invokes the edit/delete functions -->
-							<td><a href="edit?name=<c:out value='${user.username}'/>">Edit</a>
+							<td><a href="edit?name=<c:out value='${user.userid}'/>">Edit</a>
 								&nbsp;&nbsp;&nbsp;&nbsp; <a
-								href="delete?name=<c:out value='${user.username}' />">Delete</a>
+								href="delete?name=<c:out value='${user.userid}' />">Delete</a>
 							</td>
 						</tr>
 					</c:forEach>
