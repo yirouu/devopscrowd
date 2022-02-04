@@ -75,9 +75,10 @@ public class UserServlet extends HttpServlet {
 		try {
 			switch (action) {
 
-			/*
-			 * case "/UserServlet/delete": deleteUser(request, response); break;
-			 */
+			case "/UserServlet/delete":
+				deleteUser(request, response);
+				break;
+
 			case "/UserServlet/edit":
 				showEditForm(request, response);
 				break;
@@ -206,5 +207,19 @@ public class UserServlet extends HttpServlet {
 		// Step 3: redirect back to UserServlet (note: remember to change the url to
 		// your project name)
 		response.sendRedirect("/devopscrowd/UserServlet/dashboard");
+	}
+	
+	//method to delete user
+	private void deleteUser(HttpServletRequest request, HttpServletResponse response)
+	throws SQLException, IOException {
+	//Step 1: Retrieve value from the request
+	String userid = request.getParameter("id");
+	//Step 2: Attempt connection with database and execute delete user SQL query
+	try (Connection connection = getConnection(); PreparedStatement statement = connection.prepareStatement(DELETE_USERS_SQL);) {
+	statement.setString(1, userid);
+	int i = statement.executeUpdate();
+	}
+	//Step 3: redirect back to UserServlet dashboard (note: remember to change the url to your project name)
+	response.sendRedirect("/devopscrowd/UserServlet/logout");
 	}
 }
