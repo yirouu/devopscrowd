@@ -119,7 +119,7 @@ public class UserServlet extends HttpServlet {
 	// records
 	private void GetUser(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
-		List<User> cuser = new ArrayList<>();
+		User cuser = new User(0, "", "", "", "", "", 0);
 		try (Connection connection = getConnection();
 				// Step 5.1: Create a statement using connection object
 				PreparedStatement preparedStatement = connection.prepareStatement(SELECT_USER_BY_ID);) {
@@ -137,7 +137,7 @@ public class UserServlet extends HttpServlet {
 			String role = rs.getString("role");
 			String address = rs.getString("address");
 			int postal = rs.getInt("postal");
-			cuser.add(new User(userid, username, email, password, role, address, postal));
+			cuser = new User(userid, username, email, password, role, address, postal);
 
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());

@@ -15,38 +15,36 @@
 <body>
 	<div class="row">
 		<div class="container">
-			<h3 class="text-center">List of Users</h3>
-			<hr>
+			<h3 class="text-center">My Profile</h3>
+			<br>
 			<br>
 			<!-- Create a table to list out all current users information -->
-			<table class="table">
-				<thead>
-					<tr>
-						<th>Name</th>
-						<th>Email</th>
-						<th>Address</th>
-						<th>Postal</th>
+				<table class="table" >
 
-					</tr>
-				</thead>
-				<!-- Pass in the list of users receive via the Servlet’s response to a loop -->
-				<tbody>
-					<c:forEach var="user" items="${GetUser}">
-						<!-- For each user in the database, display their information accordingly -->
-						<tr>
-							<td><c:out value="${user.username}" /></td>
-							<td><c:out value="${user.email}" /></td>
-							<td><c:out value="${user.address}" /></td>
-							<td><c:out value="${user.postal}" /></td>
-							<!-- For each user in the database, Edit/Delete buttons
-								which invokes the edit/delete functions -->
-							<td><a href="edit?id=<c:out value='${user.userid}'/>">Edit</a>
-								&nbsp;&nbsp;&nbsp;&nbsp; <a
-								href="delete?id=<c:out value='${user.userid}' />">Delete</a>
-							</td>
-						</tr>
-					</c:forEach>
-				</tbody>
+				<tr>
+					<th>Your Name :</th>
+					<td>${GetUser.username}</td>
+
+				</tr>
+				<tr>
+					<th>Your Email :</th>
+					<td>${GetUser.email}</td>
+
+				</tr>
+				<tr>
+					<th>Your Address :</th>
+					<td>${GetUser.address}</td>
+				</tr>
+				<tr>
+					<th>Your Postal Code:</th>
+					<td>${GetUser.postal}</td>
+				</tr>
+				<tr>
+					<td><a href="edit?id=<c:out value='${GetUser.userid}'/>">Edit</a>
+						&nbsp;&nbsp;&nbsp;&nbsp; <a
+						href="delete?id=<c:out value='${GetUser.userid}' />">Delete</a></td>
+				</tr>
+				
 			</table>
 		</div>
 	</div>
