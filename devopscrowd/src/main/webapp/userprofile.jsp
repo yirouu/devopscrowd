@@ -18,12 +18,14 @@
 	<div class="row">
 		<div class="container">
 
+
 			<h3 class="text-center">My Profile</h3>
 			<br>
 			<br>
 			<br>
 			<!-- Create a table to list out all current users information -->
 			<table class="table">
+
 
 
 				<tr>
@@ -41,14 +43,16 @@
 					<td>${GetUser.address}</td>
 				</tr>
 				<tr>
-					<th>Your Postal :</th>
+
+					<th>Your Postal Code:</th>
 					<td>${GetUser.postal}</td>
 				</tr>
 				<tr>
-					<td><a href="edit?name=<c:out value='${GetUser.userid}'/>">Edit</a>
+					<td><a href="edit?id=<c:out value='${GetUser.userid}'/>">Edit</a>
 						&nbsp;&nbsp;&nbsp;&nbsp; <a
-						href="delete?name=<c:out value='${GetUser.userid}' />">Delete</a></td>
+						href="delete?id=<c:out value='${GetUser.userid}' />">Delete</a></td>
 				</tr>
+				
 
 			</table>
 		</div>
