@@ -27,7 +27,7 @@ public class ProductViewServlet extends HttpServlet {
 	private String jdbcPassword = "password";
 	
 	//Prepare list of SQL prepared statements to perform CRUD to our database
-	private static final String INSERT_PRODUCT_SQL = "INSERT INTO product" + " (productId, name, price, image, description, quantity) VALUES " + " (?, ?, ?);";
+	private static final String INSERT_PRODUCT_SQL = "INSERT INTO product" + " (productId, name, price, image, description) VALUES " + " (?, ?, ?);";
 	private static final String SELECT_PRODUCT_BY_ID = "select productId,name,price,image,description,quantity from product where productId =?";
 	private static final String SELECT_ALL_PRODUCTS = "select * from product ";
 	private static final String DELETE_PRODUCTS_SQL = "delete from product where productId = ?;";
@@ -107,8 +107,7 @@ public class ProductViewServlet extends HttpServlet {
 			Float price = rs.getFloat("price");
 			String image = rs.getString("image");
 			String description = rs.getString("description");
-			int quantity = rs.getInt("quantity");
-			products.add(new ProductView(productId,name, price, image, description, quantity));
+			products.add(new ProductView(productId,name, price, image, description));
 			}
 			} catch (SQLException e) {
 			System.out.println(e.getMessage());
@@ -122,7 +121,7 @@ public class ProductViewServlet extends HttpServlet {
 			throws SQLException, IOException, ServletException
 			{
 		String productid = request.getParameter("productid");
-		ProductView existingProduct = new ProductView(0, "", (float) 0, "","",0);
+		ProductView existingProduct = new ProductView(0, "", (float) 0, "","");
 		// Step 1: Establishing a Connection
 		try (Connection connection = getConnection();
 				// Step 2:Create a statement using connection object
@@ -137,8 +136,7 @@ public class ProductViewServlet extends HttpServlet {
 				Float price = rs.getFloat("price");
 				String image = rs.getString("image");
 				String description = rs.getString("description");
-				int quantity = rs.getInt("quantity");
-				existingProduct = new ProductView(productId,name, price, image, description, quantity);
+				existingProduct = new ProductView(productId,name, price, image, description);
 			}
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
@@ -169,7 +167,6 @@ public class ProductViewServlet extends HttpServlet {
 			String price = request.getParameter("price");
 			String image = request.getParameter("image");
 			String description = request.getParameter("description");
-			String quantity = request.getParameter("quantity");
 			//Step 2: Attempt connection with database and execute update user SQL query
 			try (Connection connection = getConnection(); PreparedStatement statement = connection.prepareStatement(UPDATE_PRODUCTS_SQL);) {
 			statement.setString(1, productid);
@@ -177,8 +174,7 @@ public class ProductViewServlet extends HttpServlet {
 			statement.setString(3, price);
 			statement.setString(4, image);
 			statement.setString(5, description);
-			statement.setString(6, quantity);
-			statement.setString(7, oriProductId);
+			statement.setString(6, oriProductId);
 			int i = statement.executeUpdate();
 			} 
 			response.sendRedirect("http://localhost:8090/devopscrowd/ProductViewServlet/dashboard");
