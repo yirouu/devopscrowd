@@ -29,8 +29,6 @@
 					<tr>
 						<th>Name</th>
 						<th>Email</th>
-						<th>Password</th>
-						<th>Role</th>
 						<th>Address</th>
 						<th>Postal</th>
 
@@ -43,8 +41,6 @@
 						<tr>
 							<td><c:out value="${user.username}" /></td>
 							<td><c:out value="${user.email}" /></td>
-							<td><c:out value="${user.password}" /></td>
-							<td><c:out value="${user.role}" /></td>
 							<td><c:out value="${user.address}" /></td>
 							<td><c:out value="${user.postal}" /></td>
 							<!-- For each user in the database, Edit/Delete buttons
