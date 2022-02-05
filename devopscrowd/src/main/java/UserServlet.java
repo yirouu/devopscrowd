@@ -77,10 +77,10 @@ public class UserServlet extends HttpServlet {
 		
 			case "/delete":
 				break;
-			case "/edit":
+			case "/UserServlet/edit":
+				showEditForm(request, response);
 				break;
-			case "/update":
-				break;
+
 			/*
 			 * case "/UserServlet/delete": deleteUser(request, response); break; case
 			 * "/UserServlet/edit": showEditForm(request, response); break; case
@@ -148,5 +148,38 @@ public class UserServlet extends HttpServlet {
 		request.setAttribute("GetUser", cuser);
 		request.getRequestDispatcher("/userprofile.jsp").forward(request, response);
 	}
+	// method to get parameter, query database for existing user data and redirect
+	// to user edit page
+	private void showEditForm(HttpServletRequest request, HttpServletResponse response)
+			throws SQLException, ServletException, IOException {
+		// get parameter passed in the URL
+		String userid = request.getParameter("id");
+		User existingUser = new User(0, "", "", "", "", "", 0);
+		// Step 1: Establishing a Connection
+		try (Connection connection = getConnection();
+				// Step 2:Create a statement using connection object
+				PreparedStatement preparedStatement = connection.prepareStatement(SELECT_USER_BY_ID);) {
+			preparedStatement.setString(1, userid);
+			// Step 3: Execute the query or update query
+			ResultSet rs = preparedStatement.executeQuery();
+			// Step 4: Process the ResultSet object
+			rs.next();
+			int cuserid = rs.getInt("userid");
+			String username = rs.getString("username");
+			String email = rs.getString("email");
+			String password = rs.getString("password");
+			String role = rs.getString("role");
+			String address = rs.getString("address");
+			int postal = rs.getInt("postal");
+			existingUser = new User(cuserid, username, email, password, role, address, postal);
+
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+		// Step 5: Set existingUser to request and serve up the userEdit form
+		request.setAttribute("user", existingUser);
+		request.getRequestDispatcher("/editprofile.jsp").forward(request, response);
+	}
+
 
 }
