@@ -80,7 +80,9 @@ public class UserServlet extends HttpServlet {
 			case "/UserServlet/edit":
 				showEditForm(request, response);
 				break;
-
+			case "/UserServlet/update":
+				updateUser(request, response);
+				break;
 			/*
 			 * case "/UserServlet/delete": deleteUser(request, response); break; case
 			 * "/UserServlet/edit": showEditForm(request, response); break; case
@@ -180,6 +182,33 @@ public class UserServlet extends HttpServlet {
 		request.setAttribute("user", existingUser);
 		request.getRequestDispatcher("/editprofile.jsp").forward(request, response);
 	}
-
+	
+	// method to update the user table base on the form data
+	private void updateUser(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException {
+		// Step 1: Retrieve value from the request
+		String userid = request.getParameter("userid");
+		String name = request.getParameter("username");
+		String email = request.getParameter("email");
+		String password = request.getParameter("password");
+		String role = "user";
+		String address = request.getParameter("address");
+		int postal = Integer.parseInt(request.getParameter("postal"));
+		// Step 2: Attempt connection with database and execute update user SQL query
+		try (Connection connection = getConnection();
+				PreparedStatement statement = connection.prepareStatement(UPDATE_USERS_SQL);) {
+			statement.setString(1, name);
+			statement.setString(2, email);
+			statement.setString(3, password);
+			statement.setString(4, role);
+			statement.setString(5, address);
+			statement.setInt(6, postal);
+			statement.setString(7, userid);
+			int i = statement.executeUpdate();
+		}
+		// Step 3: redirect back to UserServlet (note: remember to change the url to
+		// your project name)
+		response.sendRedirect("/devopscrowd/UserServlet/dashboard");
+	}
+	
 
 }
