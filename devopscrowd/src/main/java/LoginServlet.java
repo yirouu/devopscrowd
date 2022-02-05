@@ -101,7 +101,7 @@ public class LoginServlet extends HttpServlet {
 
 					} else {
 						sessions.setAttribute("role", "user");
-						response.sendRedirect("/devopscrowd/product.jsp");
+						response.sendRedirect("/devopscrowd/ProductViewServlet/dashboard");
 					}
 					
 
