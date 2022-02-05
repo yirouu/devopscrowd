@@ -1,0 +1,58 @@
+@charset "ISO-8859-1";
+
+.img {
+	width: 110px;
+	height: 150px;
+	object-fit: cover;
+}
+
+.table {
+	border-style: hidden !important;
+}
+
+th {
+	color: lightgray;
+	font-family: 'Poppins', sans-serif;
+	font-weight: 400;
+	font-size: 13px;
+	text-transform: uppercase;
+	border: 0 px;
+}
+
+td {
+	font-family: 'Poppins', sans-serif;
+	font-size: 13px;
+	vertical-align: middle !important;
+}
+
+.btn-incre, .btn-decre {
+	box-shadow: none;
+	font-size: 20px;
+}
+
+h3 {
+	font-family: 'Poppins', sans-serif;
+	text-transform: uppercase;
+	font-weight: 600;
+	color: gray;
+}
+
+h4 {
+	font-family: 'Poppins', sans-serif;
+	text-transform: uppercase;
+	font-weight: 500;
+	font-size: 20px;
+}
+
+input.quantity {
+	background-color: rgba(0, 0, 0, 0) !important;
+	border: none !important;	
+	text-align: center;
+	width: 40px !important;
+}
+
+.checkout{
+	background-color: lightgray;
+	color: white;
+	width: 200px;
+}
