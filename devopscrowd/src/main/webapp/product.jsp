@@ -5,7 +5,7 @@
 <head>
 <%@ include file="navbar.jsp" %>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Crowds</title>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
