@@ -1,32 +1,81 @@
 @charset "ISO-8859-1";
 
-h3{
+h1 {
+	font-family: 'Poppins', sans-serif;
+	font-weight: 600;
+	font-size: 30px;
+	text-transform: uppercase;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+h2 {
+	font-family: 'Poppins', sans-serif;
+	font-weight: 400;
+	font-size: 30px;
+}
+
+h3 {
 	font-family: 'Poppins', sans-serif;
 	font-weight: 400;
 	text-transform: uppercase;
 }
+h4 {
+	font-family: 'Poppins', sans-serif;
+	font-weight: 400;
+	font-size:15px;
+}
+
 .card-img-top {
 	height: 270px;
 	object-fit: cover;
 }
 
-.card-title{
+.card-title {
 	font-family: 'Poppins', sans-serif;
 	font-weight: 400;
 	font-size: 15px;
 }
 
-.card-text{
+.card-text {
 	font-family: 'Poppins', sans-serif;
 	font-weight: 400;
 	font-size: 13px;
 }
 
-.details{
+.details {
 	width: 150px;
 	border: 1px solid black;
 	font-family: 'Poppins', sans-serif;
 	font-weight: 400;
 	font-size: 13px;
-	
 }
+
+/* Create two equal columns that floats next to each other */
+.column {
+	float: left;
+	width: 50%;
+	padding: 10px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+.column img {
+	height: 100vh;
+	width: 100%;
+	object-fit: cover;
+}
+
+.contents {
+	text-align: center;
+}
+
+.btn-lg{
+	width:300px
+}
+
