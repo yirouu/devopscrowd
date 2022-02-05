@@ -9,6 +9,9 @@ public class ProductView {
 		this.image = image;
 		this.description = description;
 	}
+	
+	public ProductView(){}
+	
 	public int getProductid() {
 		return productid;
 	}

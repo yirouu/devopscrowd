@@ -19,6 +19,8 @@ String UserRole = (String) sessions.getAttribute("role");
 	<ul class="navbar-nav">
 		<li><a href="<%=request.getContextPath()%>/ProductViewServlet/dashboard"
 			class="nav-link">Shop Here!</a></li>
+		<li><a href="<%=request.getContextPath()%>/CartServlet/cart"
+			class="nav-link">Cart</a></li>
 	</ul>
 
 	<%
