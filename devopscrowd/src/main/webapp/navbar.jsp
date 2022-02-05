@@ -17,7 +17,7 @@ String UserRole = (String) sessions.getAttribute("role");
 		<a class="navbar-brand"> Crowds </a>
 	</div>
 	<ul class="navbar-nav">
-		<li><a href="<%=request.getContextPath()%>/product.jsp"
+		<li><a href="<%=request.getContextPath()%>/ProductViewServlet/dashboard"
 			class="nav-link">Shop Here!</a></li>
 	</ul>
 
