@@ -63,7 +63,7 @@
 									</div>
 								</form></td>
 							<td>SGD <c:out value="${products.getPrice()}" /></td>
-							<td><a class="btn"><i class="fa fa-close"></i></a></td>
+							<td><a class="btn" href="remove?id=${products.getProductid()}"><i class="fa fa-close"></i></a></td>
 						<tr>
 					</c:forEach>
 				</tbody>

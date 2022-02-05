@@ -58,5 +58,6 @@
 		<servlet-name>CartServlet</servlet-name>
 		<url-pattern>/CartServlet/cart</url-pattern>
 		<url-pattern>/CartServlet/quantity</url-pattern>
+		<url-pattern>/CartServlet/remove</url-pattern>
 	</servlet-mapping>
 </web-app>
