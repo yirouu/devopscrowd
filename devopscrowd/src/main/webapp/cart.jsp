@@ -75,7 +75,7 @@
 					Total: SGD $
 					<c:out value="${total}" />
 				</h4>
-				<a href="<%=request.getContextPath()%>/register.jsp"
+				<a href="checkout"
 					class="btn checkout">Checkout</a>
 			</div>
 		</div>

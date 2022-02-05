@@ -6,7 +6,9 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -28,6 +30,8 @@ public class CartServlet extends HttpServlet {
 
 	// Prepare list of SQL prepared statements to perform CRUD to our database
 	private static final String GET_CART_PRODUCTS = "select * from product where productid=?";
+	private static final String CHECK_OUT = "insert into orders (`orderDateTime`, `orderUserId`, `productId`, `orderStatus`)  values(?,?,?,?)";
+	private static final String SELECT_USER_BY_ID = "select userid from user where userid =?";
 
 	// Implement the getConnection method which facilitates connection to the
 	// database via JDBC
@@ -72,6 +76,9 @@ public class CartServlet extends HttpServlet {
 				break;
 			case "/CartServlet/remove":
 				removeProduct(request, response);
+				break;
+			case "/CartServlet/checkout":
+				checkout(request, response);
 				break;
 			}
 
@@ -186,6 +193,53 @@ public class CartServlet extends HttpServlet {
 				response.sendRedirect("cart");
 			}
 
+		}
+	}
+
+	private void checkout(HttpServletRequest request, HttpServletResponse response)
+			throws SQLException, ServletException, IOException {
+
+		response.setContentType("text/html");
+		PrintWriter out = response.getWriter();
+		try (Connection connection = getConnection();) {
+			Class.forName("com.mysql.jdbc.Driver");
+			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/userdetails", "root", "password");
+			PreparedStatement ps = connection.prepareStatement(CHECK_OUT);
+			PreparedStatement preparedS = connection.prepareStatement(SELECT_USER_BY_ID);
+			SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd/HH:mm:ss");
+			Date date = new Date();
+			ArrayList<Cart> cart_list = (ArrayList<Cart>) request.getSession().getAttribute("cart-list");
+			HttpSession sessions = request.getSession();
+			String cuserid = (String) sessions.getAttribute("cuser");
+			preparedS.setString(1, cuserid);
+			// Step 3: Execute the query or update query
+			ResultSet rs = preparedS.executeQuery();
+			// Step 4: Process the ResultSet object
+			rs.next();
+			int userid = rs.getInt("userid");
+
+			
+			if (cart_list != null && cuserid != null) {
+				for (Cart c : cart_list) {	
+					ps.setString(1, formatter.format(date));
+					ps.setInt(2, userid);
+					ps.setInt(3, c.getProductid());
+					ps.setString(4, "pending");
+					
+					int i = ps.executeUpdate();
+
+				}
+				cart_list.clear();
+				response.sendRedirect("http://localhost:8090/devopscrowd/ProductViewServlet/dashboard");
+			} else {
+				if (cuserid == null) {
+					response.sendRedirect("login.jsp");
+				}
+				response.sendRedirect("cart");
+			}
+		} catch (ClassNotFoundException | SQLException e) {
+
+			e.printStackTrace();
 		}
 	}
 
