@@ -28,7 +28,7 @@ public class ProductViewServlet extends HttpServlet {
 	
 	//Prepare list of SQL prepared statements to perform CRUD to our database
 	private static final String INSERT_PRODUCT_SQL = "INSERT INTO product" + " (productId, name, price, image, description) VALUES " + " (?, ?, ?);";
-	private static final String SELECT_PRODUCT_BY_ID = "select productId,name,price,image,description,quantity from product where productId =?";
+	private static final String SELECT_PRODUCT_BY_ID = "select productid,name,price,image,description from product where productid =?";
 	private static final String SELECT_ALL_PRODUCTS = "select * from product ";
 	private static final String DELETE_PRODUCTS_SQL = "delete from product where productId = ?;";
 	private static final String UPDATE_PRODUCTS_SQL = "update product set productId =?,name = ?,price= ?, image =?,description =? where productId = ?;";
@@ -77,6 +77,9 @@ public class ProductViewServlet extends HttpServlet {
 		case "/ProductViewServlet/dashboard":
 			listProduct(request, response);
 		break;
+		case "/ProductViewServlet/details":
+			getDetails(request, response);
+			break;
 		}
 		} catch (SQLException ex) {
 		throw new ServletException(ex);
@@ -102,7 +105,7 @@ public class ProductViewServlet extends HttpServlet {
 			ResultSet rs = preparedStatement.executeQuery();
 			// Step 5.3: Process the ResultSet object.
 			while (rs.next()) {
-			int productId = rs.getInt("productId");
+			int productId = rs.getInt("productid");
 			String name = rs.getString("name");
 			Float price = rs.getFloat("price");
 			String image = rs.getString("image");
@@ -180,5 +183,34 @@ public class ProductViewServlet extends HttpServlet {
 			response.sendRedirect("http://localhost:8090/devopscrowd/ProductViewServlet/dashboard");
 			}
 	
+			private void getDetails(HttpServletRequest request, HttpServletResponse response)
+					throws SQLException, ServletException, IOException {
+				// get parameter passed in the URL
+				String productid = request.getParameter("productid");
+				ProductView product = new ProductView(0,"",(float) 0,"","");
+				// Establishing a Connection
+				try (Connection connection = getConnection();
+						// Create a statement using connection object
+						PreparedStatement preparedStatement = connection.prepareStatement(SELECT_PRODUCT_BY_ID);) {
+					preparedStatement.setString(1, productid);
+					// Execute the query or update query
+					ResultSet rs = preparedStatement.executeQuery();
+					// Process the ResultSet object
+					while (rs.next()) {
+						int productId = rs.getInt("productid");
+						String name = rs.getString("name");
+						Float price = rs.getFloat("price");
+						String image = rs.getString("image");
+						String description = rs.getString("description");
+						product = new ProductView(productId, name, price, image, description);
+					}
+				} catch (SQLException e) {
+					System.out.println(e.getMessage());
+				}
+				// Step 5: Set existingUser to request and serve up the userEdit form
+				request.setAttribute("productdetail", product);
+				request.getRequestDispatcher("/productDetails.jsp").forward(request, response);
+			}
+			
 	
 }
