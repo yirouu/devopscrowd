@@ -44,5 +44,6 @@
 	<servlet-mapping>
 		<servlet-name>ProductViewServlet</servlet-name>
 		<url-pattern>/ProductViewServlet/dashboard</url-pattern>
+		<url-pattern>/ProductViewServlet/details</url-pattern>
 	</servlet-mapping>
 </web-app>
