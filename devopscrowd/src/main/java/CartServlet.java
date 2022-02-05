@@ -1,5 +1,6 @@
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -66,7 +67,11 @@ public class CartServlet extends HttpServlet {
 			case "/CartServlet/cart":
 				getCartProducts(request, response);
 				break;
+			case "/CartServlet/quantity":
+				updateQuantity(request, response);
+				break;
 			}
+			
 
 		} catch (SQLException ex) {
 			throw new ServletException(ex);
@@ -119,5 +124,44 @@ public class CartServlet extends HttpServlet {
 		request.setAttribute("total", sum);
 		request.getRequestDispatcher("/cart.jsp").forward(request, response);
 	}
+	
+	private void updateQuantity(HttpServletRequest request, HttpServletResponse response)
+			throws SQLException, ServletException, IOException {
+		response.setContentType("text/html;charset=UTF-8");
+		try (PrintWriter out = response.getWriter()) {
+			String action = request.getParameter("action");
+			int id = Integer.parseInt(request.getParameter("id"));
+			ArrayList<Cart> cart_list = (ArrayList<Cart>) request.getSession().getAttribute("cart-list");
+
+			if (action != null && id >= 1) {
+				if (action.equals("inc")) {
+					for (Cart c : cart_list) {
+						if (c.getProductid() == id) {
+							int quantity = c.getQuantity();
+							quantity++;
+							c.setQuantity(quantity);
+							response.sendRedirect("cart");
+						}
+					}
+				}
+
+				if (action.equals("dec")) {
+					for (Cart c : cart_list) {
+						if (c.getProductid() == id && c.getQuantity() > 1) {
+							int quantity = c.getQuantity();
+							quantity--;
+							c.setQuantity(quantity);
+							break;
+						}
+					}
+					response.sendRedirect("cart");
+				}
+			} else {
+				response.sendRedirect("cart");
+			}
+		}
+
+	}
+
 
 }
