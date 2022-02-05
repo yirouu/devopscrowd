@@ -26,7 +26,7 @@ public class ProductViewServlet extends HttpServlet {
 	
 	private String jdbcURL = "jdbc:mysql://localhost:3306/devops";
 	private String jdbcUsername = "root";
-	private String jdbcPassword = "adriancjf1012";
+	private String jdbcPassword = "password";
 	
 	//Prepare list of SQL prepared statements to perform CRUD to our database
 	private static final String INSERT_PRODUCT_SQL = "INSERT INTO product" + " (productId, name, price, image, description) VALUES " + " (?, ?, ?);";
