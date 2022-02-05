@@ -102,7 +102,7 @@ public class ProductViewServlet extends HttpServlet {
 			ResultSet rs = preparedStatement.executeQuery();
 			// Step 5.3: Process the ResultSet object.
 			while (rs.next()) {
-			int productId = rs.getInt("productId");
+			int productId = rs.getInt("productid");
 			String name = rs.getString("name");
 			Float price = rs.getFloat("price");
 			String image = rs.getString("image");
