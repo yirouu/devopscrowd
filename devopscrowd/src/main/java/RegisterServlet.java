@@ -1,5 +1,4 @@
 
-
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
@@ -19,25 +18,28 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/RegisterServlet")
 public class RegisterServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public RegisterServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public RegisterServlet() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -53,14 +55,13 @@ public class RegisterServlet extends HttpServlet {
 		String c = request.getParameter("yourPostal");
 		// Step 3: attempt connection to database using JDBC, you can change the
 		// username and password accordingly using the phpMyAdmin > User Account
-		
+
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/devops", "root", "password");
 			// Step 4: implement the sql query using prepared statement
 			// (https://docs.oracle.com/javase/tutorial/jdbc/basics/prepared.html)
-			PreparedStatement psc = con.prepareStatement(
-					"select * from user where email = ? ");
+			PreparedStatement psc = con.prepareStatement("select * from user where email = ? ");
 			PreparedStatement ps = con.prepareStatement(
 					"insert into user (`username`, `email`, `password`, `role`, `address`, `postal`) values(?,?,?,?,?,?)");
 			// Step 5: parse in the data retrieved from the web form request into the
@@ -71,7 +72,7 @@ public class RegisterServlet extends HttpServlet {
 			ps.setString(4, "user");
 			ps.setString(5, a);
 			ps.setString(6, c);
-			
+
 			psc.setString(1, e);
 
 			ResultSet rsc = psc.executeQuery();
@@ -82,15 +83,16 @@ public class RegisterServlet extends HttpServlet {
 				int i = ps.executeUpdate(); // Step 7: check if the query had been successfully execute, return “You are
 											// successfully registered” via the response,
 				if (i > 0) {
-					PrintWriter writer = response.getWriter();
-					writer.println("<h1>" + "You have successfully registered an account!" + "</h1>");
-					writer.close();
+					response.sendRedirect("/devopscrowd/login.jsp");
 				}
-			}
-			else {
-				PrintWriter writerpe = response.getWriter();
-				writerpe.println("<h1>" + "email in use!" + hasResult + e + "<h1>");
-				writerpe.close();
+			} else {
+				/*
+				 * PrintWriter writerpe = response.getWriter(); writerpe.println("<h1>" +
+				 * "email in use!" + hasResult + e + "<h1>"); writerpe.close();
+				 */
+				/*out.println("Email In Use!");*/
+				request.getSession().setAttribute("email", "exist");
+				response.sendRedirect("/devopscrowd/register.jsp");
 			}
 		} // Step 8: catch and print out any exception
 		catch (Exception exception) {
