@@ -70,8 +70,10 @@ public class CartServlet extends HttpServlet {
 			case "/CartServlet/quantity":
 				updateQuantity(request, response);
 				break;
+			case "/CartServlet/remove":
+				removeProduct(request, response);
+				break;
 			}
-			
 
 		} catch (SQLException ex) {
 			throw new ServletException(ex);
@@ -124,7 +126,7 @@ public class CartServlet extends HttpServlet {
 		request.setAttribute("total", sum);
 		request.getRequestDispatcher("/cart.jsp").forward(request, response);
 	}
-	
+
 	private void updateQuantity(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, ServletException, IOException {
 		response.setContentType("text/html;charset=UTF-8");
@@ -163,5 +165,28 @@ public class CartServlet extends HttpServlet {
 
 	}
 
+	private void removeProduct(HttpServletRequest request, HttpServletResponse response)
+			throws SQLException, ServletException, IOException {
+		response.setContentType("text/html;charset=UTF-8");
+		try (PrintWriter out = response.getWriter()) {
+			String productId = request.getParameter("id");
+			if (productId != null) {
+				ArrayList<Cart> cart_list = (ArrayList<Cart>) request.getSession().getAttribute("cart-list");
+				if (cart_list != null) {
+					for (Cart c : cart_list) {
+						if (c.getProductid() == Integer.parseInt(productId)) {
+							cart_list.remove(cart_list.indexOf(c));
+							break;
+						}
+					}
+				}
+				response.sendRedirect("cart");
+
+			} else {
+				response.sendRedirect("cart");
+			}
+
+		}
+	}
 
 }
