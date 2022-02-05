@@ -22,15 +22,31 @@ String UserRole = (String) sessions.getAttribute("role");
 	</ul>
 
 	<%
-	if (isLoggedIn != null && isLoggedIn.equals("LoggedIn") && UserRole.equals("user")) {
+	if (isLoggedIn != null && isLoggedIn.equals("LoggedIn")) {
+	%>
+	<%
+	if (UserRole.equals("user")) {
 	%>
 	<ul class="navbar-nav ms-auto">
-	<li><a href="<%=request.getContextPath()%>/UserServlet/dashboard"
+		<li><a href="<%=request.getContextPath()%>/UserServlet/dashboard"
 			class="nav-link">Profile</a></li>
 		<li><a href="<%=request.getContextPath()%>/UserServlet/logout"
 			class="nav-link">Logout</a></li>
 	</ul>
 	<%
+	} else {
+	%>
+	<ul class="navbar-nav ms-auto">
+		<li><a
+			href="<%=request.getContextPath()%>/OrderServlet/dashboard"
+			class="nav-link">Orders</a></li>
+		<li><a href="<%=request.getContextPath()%>/admin.jsp"
+			class="nav-link">Admin</a></li>
+		<li><a href="<%=request.getContextPath()%>/UserServlet/logout"
+			class="nav-link">Logout</a></li>
+	</ul>
+	<%
+	}
 	} else {
 	%>
 	<ul class="navbar-nav ms-auto">
