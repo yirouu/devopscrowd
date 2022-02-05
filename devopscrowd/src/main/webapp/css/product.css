@@ -1,0 +1,32 @@
+@charset "ISO-8859-1";
+
+h3{
+	font-family: 'Poppins', sans-serif;
+	font-weight: 400;
+	text-transform: uppercase;
+}
+.card-img-top {
+	height: 270px;
+	object-fit: cover;
+}
+
+.card-title{
+	font-family: 'Poppins', sans-serif;
+	font-weight: 400;
+	font-size: 15px;
+}
+
+.card-text{
+	font-family: 'Poppins', sans-serif;
+	font-weight: 400;
+	font-size: 13px;
+}
+
+.details{
+	width: 150px;
+	border: 1px solid black;
+	font-family: 'Poppins', sans-serif;
+	font-weight: 400;
+	font-size: 13px;
+	
+}
