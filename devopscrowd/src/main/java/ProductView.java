@@ -1,4 +1,6 @@
 public class ProductView {
+	
+	protected int productid;
 	public ProductView(int productid, String name, Float price, String image, String description) {
 		super();
 		this.productid = productid;
@@ -7,40 +9,38 @@ public class ProductView {
 		this.image = image;
 		this.description = description;
 	}
-	protected int getproductid() {
+	public int getProductid() {
 		return productid;
 	}
-	protected void setproductid(int productid) {
+	public void setProductid(int productid) {
 		this.productid = productid;
 	}
-	protected String getName() {
+	public String getName() {
 		return name;
 	}
-	protected void setName(String name) {
+	public void setName(String name) {
 		this.name = name;
 	}
-	protected Float getPrice() {
+	public Float getPrice() {
 		return price;
 	}
-	protected void setPrice(Float price) {
+	public void setPrice(Float price) {
 		this.price = price;
 	}
-	protected String getImage() {
+	public String getImage() {
 		return image;
 	}
-	protected void setImage(String image) {
+	public void setImage(String image) {
 		this.image = image;
 	}
-	protected String getDescription() {
+	public String getDescription() {
 		return description;
 	}
-	protected void setDescription(String description) {
+	public void setDescription(String description) {
 		this.description = description;
 	}
-	protected int productid;
 	protected String name;
 	protected Float price;
 	protected String image;
 	protected String description;
-
 }
