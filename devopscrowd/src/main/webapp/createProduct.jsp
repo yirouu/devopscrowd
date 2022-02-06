@@ -19,7 +19,7 @@ crossorigin="anonymous">
     Name: <input type="text" name="name">
     Price: <input type="text" name="price">
     description: <input type="text" name="description">
-    Image: <input type="image" name="image">
+    Image: <input type="text" name="image">
     <input type="submit" value="Create" />
 </form>
 
