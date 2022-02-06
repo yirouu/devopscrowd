@@ -99,6 +99,10 @@ public class CartServlet extends HttpServlet {
 
 	private void getCartProducts(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, ServletException, IOException {
+
+		response.setContentType("text/html"); // Step 1: Initialize a PrintWriter object to return the html values via
+		// the response
+		PrintWriter out = response.getWriter();
 		// get parameter passed in the URL
 		List<Cart> products = new ArrayList<Cart>();
 
@@ -124,6 +128,11 @@ public class CartServlet extends HttpServlet {
 						sum += rs.getFloat("price") * item.getQuantity();
 					}
 				}
+			}
+			else {
+				PrintWriter writer = response.getWriter();
+				writer.println("<h1>" + "nothing in cart" + "</h1>");
+				writer.close();
 			}
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
@@ -203,7 +212,6 @@ public class CartServlet extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		try (Connection connection = getConnection();) {
 			Class.forName("com.mysql.jdbc.Driver");
-			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/userdetails", "root", "password");
 			PreparedStatement ps = connection.prepareStatement(CHECK_OUT);
 			PreparedStatement preparedS = connection.prepareStatement(SELECT_USER_BY_ID);
 			SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd/HH:mm:ss");
@@ -218,14 +226,13 @@ public class CartServlet extends HttpServlet {
 			rs.next();
 			int userid = rs.getInt("userid");
 
-			
 			if (cart_list != null && cuserid != null) {
-				for (Cart c : cart_list) {	
+				for (Cart c : cart_list) {
 					ps.setString(1, formatter.format(date));
 					ps.setInt(2, userid);
 					ps.setInt(3, c.getProductid());
 					ps.setString(4, "pending");
-					
+
 					int i = ps.executeUpdate();
 
 				}
@@ -233,7 +240,9 @@ public class CartServlet extends HttpServlet {
 				response.sendRedirect("http://localhost:8090/devopscrowd/ProductViewServlet/dashboard");
 			} else {
 				if (cuserid == null) {
-					response.sendRedirect("login.jsp");
+					PrintWriter writer = response.getWriter();
+					writer.println("<h1>" + "you are not logged in" + "</h1>");
+					writer.close();
 				}
 				response.sendRedirect("cart");
 			}
