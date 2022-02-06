@@ -25,6 +25,14 @@
 		<servlet-name>ProductViewServlet</servlet-name>
 		<servlet-class>ProductViewServlet</servlet-class>
 	</servlet>
+		<servlet>
+		<servlet-name>AddToCartServlet</servlet-name>
+		<servlet-class>AddToCartServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>CartServlet</servlet-name>
+		<servlet-class>CartServlet</servlet-class>
+	</servlet>
 
 	<servlet-mapping>
 		<servlet-name>OrderServlet</servlet-name>
@@ -52,6 +60,12 @@
 		<url-pattern>/FeedbackServlet/edit</url-pattern>
 		<url-pattern>/FeedbackServlet/update</url-pattern>
 		<url-pattern>/FeedbackServlet/delete</url-pattern>
-		
+		</servlet-mapping>
+		<servlet-mapping>
+		<servlet-name>CartServlet</servlet-name>
+		<url-pattern>/CartServlet/cart</url-pattern>
+		<url-pattern>/CartServlet/quantity</url-pattern>
+		<url-pattern>/CartServlet/remove</url-pattern>
+		<url-pattern>/CartServlet/checkout</url-pattern>
 	</servlet-mapping>
 </web-app>
