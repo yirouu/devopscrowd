@@ -35,7 +35,7 @@
 				<br>
 				<h4><c:out value="${productdetail.description}" /></h4>
 				<br><br>
-				<a href="http://localhost:8090/devopscrowd/addToCartServlet?productid=<c:out value='${productdetail.productid}'/>"class="btn btn-secondary btn-lg">Checkout</a>
+				<a href="http://localhost:8090/devopscrowd/AddToCartServlet?productid=<c:out value='${productdetail.productid}'/>"class="btn btn-secondary btn-lg">Checkout</a>
 			</div>
 			
 		</div>

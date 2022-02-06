@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<%@ include file="navbar.jsp" %>
+<%@ include file="navbar.jsp"%>
 <meta charset="ISO-8859-1">
 <title>Register</title>
 <link href="css/register.css" rel="stylesheet" type="text/css" />
@@ -29,7 +29,8 @@
 			Postal: <br> <input type="number" name="yourPostal" size="20"
 				min="100000" max="999999">
 		</h1>
-		<br><br>
+		<br>
+		<br>
 		<!-- Implement submit button with type = submit to perform the request when clicked -->
 		<div class="sbtn">
 			<input type="submit" value="Register" />
@@ -39,6 +40,19 @@
 			<a href="<%=request.getContextPath()%>/login.jsp" class="nav-link">Already
 				have an account? Login here!</a>
 		</h1>
+		<%String s1 = "";%>
+		<%
+		s1 = (String) session.getAttribute("email");
+		%>
+		<%
+		if (s1 != null && s1.equals("exist")) {
+		%>
+		<div class="besideemailbox" style="color: red; text-align : center;">Email Already
+			exist, please enter another email.</div>
+		<%
+		
+		}
+		%>
 	</form>
 
 </body>
