@@ -106,16 +106,21 @@ public class LoginServlet extends HttpServlet {
 					
 
 				} else {
-					PrintWriter writerpe = response.getWriter();
-					writerpe.println("<h1>" + "wrongpassword!" + userpassword + "!="+ p + "<h1>");
-					writerpe.close();
-
+					/*
+					 * PrintWriter writerpe = response.getWriter(); writerpe.println("<h1>" +
+					 * "wrongpassword!" + userpassword + "!="+ p + "<h1>"); writerpe.close();
+					 */
+					request.getSession().setAttribute("credential", "incorrect");
+					response.sendRedirect("/devopscrowd/login.jsp");
 				}
 
 			} else {
-				PrintWriter writerpe = response.getWriter();
-				writerpe.println("<h1>" + "wrongemail!" + e + "<h1>");
-				writerpe.close();
+				/*
+				 * PrintWriter writerpe = response.getWriter(); writerpe.println("<h1>" +
+				 * "wrongemail!" + e + "<h1>"); writerpe.close();
+				 */
+				request.getSession().setAttribute("credential", "incorrect");
+				response.sendRedirect("/devopscrowd/login.jsp");
 
 			}
 		} // Step 8: catch and print out any exception
