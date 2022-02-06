@@ -19,8 +19,6 @@ String UserRole = (String) sessions.getAttribute("role");
 	<ul class="navbar-nav">
 		<li><a href="<%=request.getContextPath()%>/ProductViewServlet/dashboard"
 			class="nav-link">Shop Here!</a></li>
-		<li><a href="<%=request.getContextPath()%>/CartServlet/cart"
-			class="nav-link">Cart</a></li>
 	</ul>
 
 	<%
@@ -30,10 +28,13 @@ String UserRole = (String) sessions.getAttribute("role");
 	if (UserRole.equals("user")) {
 	%>
 	<ul class="navbar-nav ms-auto">
+	<li><a href="<%=request.getContextPath()%>/CartServlet/cart"
+			class="nav-link">Cart</a></li>
 		<li><a href="<%=request.getContextPath()%>/UserServlet/dashboard"
 			class="nav-link">Profile</a></li>
 		<li><a href="<%=request.getContextPath()%>/UserServlet/logout"
 			class="nav-link">Logout</a></li>
+		
 	</ul>
 	<%
 	} else {
