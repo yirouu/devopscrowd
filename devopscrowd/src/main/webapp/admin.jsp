@@ -31,7 +31,7 @@
 </div>
 			<br>
 			<div class="row">
-				<c:forEach var="products" items="${listProducts}">
+				<c:forEach var="products" items="${listProduct}">
 					<div class="col-sm-4">
 						<div class="card" style="width: 23rem;">
 							<img class="card-img-top" src="${products.image}"
@@ -48,7 +48,7 @@
 								<a
 									href="details?productid=<c:out value='${products.productid}'/>"
 									class="btn details">View details</a>
-									<a href="edit?productid=<c:out value='${products.productid}'/>" class="btn">edit</a>	
+									<a href="edit?productid=<c:out value='${products.productid}'/>" class="btn edit">edit</a>	
 								<a href="delete?productid=<c:out value='${product.productid}'/>" class="btn">delete</a>
 							</div>
 						</div>

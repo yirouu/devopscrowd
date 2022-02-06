@@ -145,8 +145,8 @@ public class ProductViewServlet extends HttpServlet {
 			System.out.println(e.getMessage());
 		}
 		// Step 5: Set existingUser to request and serve up the userEdit form
-		request.setAttribute("product", existingProduct);
-		request.getRequestDispatcher("/product.jsp").forward(request, response);
+		request.setAttribute("editproduct", existingProduct);
+		request.getRequestDispatcher("/editProduct.jsp").forward(request, response);
 	}
 	
 	private void deleteProduct(HttpServletRequest request, HttpServletResponse response)
