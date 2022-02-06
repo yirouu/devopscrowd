@@ -14,7 +14,7 @@ crossorigin="anonymous">
 <title>Insert title here</title>
 </head>
 <body>
-<form action="ProductViewServlet" method="post">
+<form action="CreateProductServlet" method="post">
     ProductId: <input type="text" name="productId">
     Name: <input type="text" name="name">
     Price: <input type="text" name="price">
