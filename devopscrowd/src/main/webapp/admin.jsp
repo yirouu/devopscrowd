@@ -48,8 +48,8 @@
 								<a
 									href="details?productid=<c:out value='${products.productid}'/>"
 									class="btn details">View details</a>
-									<a href="edit?orderid=<c:out value='${products.productid}'/>" class="btn">edit</a>	
-								<a href="delete?orderid=<c:out value='${product.productid}'/>" class="btn">delete</a>
+									<a href="edit?productid=<c:out value='${products.productid}'/>" class="btn">edit</a>	
+								<a href="delete?productid=<c:out value='${product.productid}'/>" class="btn">delete</a>
 							</div>
 						</div>
 					</div>
