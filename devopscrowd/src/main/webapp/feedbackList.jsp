@@ -18,7 +18,7 @@
 <hr>
 <div class="container text-left">
 <!-- Add new user button redirects to the register.jsp page -->
-<a href="<%=request.getContextPath()%>/feedCreate.jsp" class="btn btnsuccess">Add New User</a>
+<a href="<%=request.getContextPath()%>/feedCreate.jsp" class="btn btnsuccess">Add New Comment</a>
 </div>
 <br>
 <!-- Create a table to list out all current users information -->
