@@ -93,33 +93,7 @@ public class ProductViewServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.setContentType("text/html"); 
-		PrintWriter out = response.getWriter(); 
-		String m = request.getParameter("productId");
-		String n = request.getParameter("name");
-		String p = request.getParameter("price");
-		String e = request.getParameter("description");
-		String c = request.getParameter("image");
-		try {
-		Class.forName("com.mysql.jdbc.Driver");
-		Connection con = DriverManager.getConnection( "jdbc:mysql://localhost:3306/devops", "root", "password");
-		PreparedStatement ps = con.prepareStatement("insert into PRODUCT values(?,?,?,?,?)");
-		ps.setString(1, m);
-		ps.setString(2, n);
-		ps.setString(3, p);
-		ps.setString(4, e);
-		ps.setString(5, c);
-		int i = ps.executeUpdate(); 
-		if (i > 0){
-		PrintWriter writer = response.getWriter();
-		writer.println("<h1>" + "You have successfully added a new product!" + "</h1>");
-		writer.close();
-		}
-		} //Step 8: catch and print out any exception
-		catch (Exception exception) {
-		System.out.println(exception);
-		out.close();
-		}
+		doGet(request, response);
 	}
 	
 	private void listProduct(HttpServletRequest request, HttpServletResponse response)
