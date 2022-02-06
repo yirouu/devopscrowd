@@ -54,6 +54,13 @@
 		<url-pattern>/ProductViewServlet/dashboard</url-pattern>
 		<url-pattern>/ProductViewServlet/details</url-pattern>
 	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>FeedbackServlet</servlet-name>
+		<url-pattern>/FeedbackServlet/dashboard</url-pattern>
+		<url-pattern>/FeedbackServlet/edit</url-pattern>
+		<url-pattern>/FeedbackServlet/update</url-pattern>
+		<url-pattern>/FeedbackServlet/delete</url-pattern>
+		</servlet-mapping>
 		<servlet-mapping>
 		<servlet-name>CartServlet</servlet-name>
 		<url-pattern>/CartServlet/cart</url-pattern>
