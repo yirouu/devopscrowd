@@ -34,6 +34,9 @@ Add New Comment
 </h2>
 </caption>
 
+<c:if test="${feedbacks != null}">
+                    <input type="hidden" name="orifeedbackId" value="<c:out value= '${feedbacks.feedbackId}'/>" >
+                </c:if>
 <fieldset class="form-group">
 <label>Comment:</label> <input type="text" value="<c:out
 value='${feedbacks.comment}' />" class="form-control" name="comment" required="required">
