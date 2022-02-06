@@ -141,7 +141,7 @@ public class FeedbackServlet extends HttpServlet {
 			 private void updateFeedback(HttpServletRequest request, HttpServletResponse response)
 			 throws SQLException, IOException {
 			 //Step 1: Retrieve value from the request
-		      String feedbackId = request.getParameter("feedbackId");
+		      String orifeedbackId = request.getParameter("orifeedbackId");
 			  String comment = request.getParameter("comment");
 			  String rating = request.getParameter("rating");
 
@@ -150,8 +150,9 @@ public class FeedbackServlet extends HttpServlet {
 			 connection.prepareStatement(UPDATE_FEEDBACK_SQL);) {
 			  statement.setString(1, comment);
 			  statement.setString(2, rating);
-			  statement.setString(3, feedbackId);
+			  statement.setString(3, orifeedbackId);
 			  int i = statement.executeUpdate();
+			  System.out.println(comment);
 			  }
 			  //Step 3: redirect back to UserServlet (note: remember to change the url to your project name)
 			  response.sendRedirect("http://localhost:8090/devopscrowd/FeedbackServlet/dashboard");
