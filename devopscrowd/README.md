@@ -2,10 +2,12 @@ TABLE OF CONTENT
 
 How to clone and use this repository for editing
 
-1) Get the repository url by clicking on Clone and copy the link as HTTPS
-2) In Eclipse, go to File > Import > Projects From Git > Clone URL and paste the copied link from Github
-3) In Package Explorer, right click on your newly cloned repository and convert to a Maven project.
-4) Once you're done, you're able to view the master branch of the respository
+1) Get the repository url by clicking on Clone and copy the HTTPS link
+2) In Eclipse, go to Git Repositories and click on Clone a Git Repository
+3) Paste the link copied previously from Git and input your Git credentials 
+4) On the Branch Selection panel, ensure all checkboxes are ticked and press Finish to proceed. 
+5) Once done, go to your Package Explorer and click on Import Project > Existing Maven Project > Select the recently cloned repository
+6) After that, you will be in the master branch of the repository and you're good to go.
 
 
 
