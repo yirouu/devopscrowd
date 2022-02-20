@@ -1,9 +1,10 @@
 pipeline {
- agent {
-    label ('ws') { 
-        workspacePath 'jenkinsws/workspace'
-    }
-}
+  agent {
+   node {
+    label 'win'
+    customWorkspace 'C://jenkinsws/workspace'
+   }
+  }
     tools {
         maven 'maven 3.8.2'
     }
