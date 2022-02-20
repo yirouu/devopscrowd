@@ -1,5 +1,10 @@
 pipeline {
-     agent any
+       agent {
+    node {
+      label 'label'
+      customWorkspace dir'D:\Documents\workspace'
+    }
+  }
     tools {
         maven 'maven 3.8.2'
     }
@@ -19,6 +24,6 @@ pipeline {
            deploy adapters: [tomcat9(url: 'http://localhost:8090/', 
                               credentialsId: 'tomcat')], 
                      war: '**/*.war',
-                     contextPath: 'D:\Documents\workspace'
+                     contextPath: 'app'
     }
 }
