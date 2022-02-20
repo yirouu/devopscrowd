@@ -1,8 +1,10 @@
 pipeline {
    agent {
+      docker{
     node {
       customWorkspace 'jenkinsws/workspace'
     }
+      }
   }
     tools {
         maven 'maven 3.8.2'
