@@ -26,7 +26,7 @@ pipeline {
         stage('Maven Deploy') {
       steps {
           deploy adapters: [tomcat9(url: 'http://localhost:8090/', 
-                              credentialsId: 'tomcat')], 
+                              credentialsId: '74daef0d-88dc-490f-8892-8d3f678153d4')], 
                      war: '**/*.war'
       }
     }
