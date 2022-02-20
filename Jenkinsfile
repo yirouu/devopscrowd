@@ -1,12 +1,29 @@
 pipeline {
-    agent any
-
+     agent {
+    node {
+      label 'my-defined-label'
+      customWorkspace 'D:\Documents\workspace'
+    }
+  }
+    tools {
+        maven 'maven 3.8.2'
+    }
     stages {
-        stage('build') {
+        stage('clone git') {
             steps {
-             sh 'mvn --version'
+             git url: "https://github.com/yirouu/devopscrowd.git"
             }
         }
-     
+          stage('build code') {
+            steps {
+             sh "mvn clean install"
+            }
+        }
+    }
+    post {
+           deploy adapters: [tomcat9(url: 'http://localhost:8090/', 
+                              credentialsId: 'tomcat')], 
+                     war: '**/*.war',
+                     contextPath: 'D:\Documents\workspace'
     }
 }
