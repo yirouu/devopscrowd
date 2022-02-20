@@ -1,7 +1,7 @@
 pipeline {
   agent {
    node {
-    customWorkspace 'C:\jenkinsws\workspace'
+    customWorkspace 'C:/jenkinsws/workspace'
    }
   }
     tools {
