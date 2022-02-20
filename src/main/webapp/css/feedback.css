@@ -1,0 +1,32 @@
+@charset "ISO-8859-1";
+
+h1 {
+	font-family: verdana;
+	font-size: 10px;
+	text-align: center;
+}
+
+.sbtn {
+	text-align: center;
+}
+
+form {
+	background-color: transparent;
+	width: 700px;
+	border: 2px solid black;
+	padding: 50px;
+	max-width: 100%;
+	margin-top: 100px; margin-left : auto;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+comment {
+	width: 600px;
+	height: 250px;
+}
+
+body {
+	color: #808080;
+}
+
