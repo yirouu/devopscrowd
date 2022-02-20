@@ -1,31 +1,29 @@
 pipeline {
   agent {
-   node {
-    customWorkspace 'C:/jenkinsws/workspace'
-   }
+     node { 
+        label ''
+        customWorkspace "D:\Documents\workspace"
+        } 
   }
     tools {
-        maven 'maven 3.8.2'
+    maven 'maven 3.8.2'
+    jdk 'JDK 1.8'
+  }
+  stages {
+    stage('Maven Build') {
+      steps {
+        sh 'mvn clean install test'
+      }
     }
-    stages {
-        stage('clone git') {
-            steps {
-             git url: "https://github.com/yirouu/devopscrowd.git"
-            }
-        }
-          stage('build code') {
-            steps {
-             sh "mvn clean install"
-            }
-        }
-           stage('deploy code') {
-            steps {
-              deploy adapters: [tomcat9(url: 'http://localhost:8090/', 
-                              credentialsId: 'tomcat')], 
-                     war: '**/*.war',
-                     contextPath: 'app'
-            }
-        }
+
+  }
+  post {
+    always {
+      echo 'No converter for Publisher: hudson.plugins.deploy.DeployPublisher'
     }
- 
+
+  }
+  triggers {
+    pollSCM('H * * * *')
+  }
 }
