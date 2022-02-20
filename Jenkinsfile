@@ -19,11 +19,14 @@ pipeline {
              sh "mvn clean install"
             }
         }
-    }
-    post {
-           deploy adapters: [tomcat9(url: 'http://localhost:8090/', 
+           stage('deploy code') {
+            steps {
+              deploy adapters: [tomcat9(url: 'http://localhost:8090/', 
                               credentialsId: 'tomcat')], 
                      war: '**/*.war',
                      contextPath: 'app'
+            }
+        }
     }
+ 
 }
