@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="4" passed="4" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2022-02-21T21:58:53 GMT+08:00" name="Default suite" finished-at="2022-02-21T21:58:57 GMT+08:00" duration-ms="4079">
+    <groups>
+    </groups>
+    <test started-at="2022-02-21T21:58:53 GMT+08:00" name="Default test" finished-at="2022-02-21T21:58:57 GMT+08:00" duration-ms="4079">
+      <class name="com.sddevops.devopscrowdd.OrderTest">
+        <test-method is-config="true" signature="beforeTest()[pri:0, instance:com.sddevops.devopscrowdd.OrderTest@2e1d27ba]" started-at="2022-02-21T21:58:53 GMT+08:00" name="beforeTest" finished-at="2022-02-21T21:58:55 GMT+08:00" duration-ms="1575" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeTest -->
+        <test-method signature="checklogin()[pri:0, instance:com.sddevops.devopscrowdd.OrderTest@2e1d27ba]" started-at="2022-02-21T21:58:55 GMT+08:00" name="checklogin" finished-at="2022-02-21T21:58:56 GMT+08:00" duration-ms="630" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checklogin -->
+        <test-method signature="checkTitle()[pri:1, instance:com.sddevops.devopscrowdd.OrderTest@2e1d27ba]" started-at="2022-02-21T21:58:56 GMT+08:00" name="checkTitle" finished-at="2022-02-21T21:58:56 GMT+08:00" duration-ms="85" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkTitle -->
+        <test-method signature="checkoutProduct()[pri:2, instance:com.sddevops.devopscrowdd.OrderTest@2e1d27ba]" started-at="2022-02-21T21:58:56 GMT+08:00" name="checkoutProduct" finished-at="2022-02-21T21:58:57 GMT+08:00" duration-ms="976" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkoutProduct -->
+        <test-method signature="checkOrders()[pri:3, instance:com.sddevops.devopscrowdd.OrderTest@2e1d27ba]" started-at="2022-02-21T21:58:57 GMT+08:00" name="checkOrders" finished-at="2022-02-21T21:58:57 GMT+08:00" duration-ms="576" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkOrders -->
+        <test-method is-config="true" signature="afterTest()[pri:0, instance:com.sddevops.devopscrowdd.OrderTest@2e1d27ba]" started-at="2022-02-21T21:58:57 GMT+08:00" name="afterTest" finished-at="2022-02-21T21:58:57 GMT+08:00" duration-ms="200" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterTest -->
+      </class> <!-- com.sddevops.devopscrowdd.OrderTest -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>

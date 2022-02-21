@@ -100,7 +100,7 @@ public class OrderServlet extends HttpServlet {
 
 	// Step 5: listUsers function to connect to the database and retrieve all users
 	// records
-	private void listOrders(HttpServletRequest request, HttpServletResponse response)
+	public void listOrders(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
 		List<Orders> orders = new ArrayList<>();
 		try (Connection connection = getConnection();
@@ -136,7 +136,7 @@ public class OrderServlet extends HttpServlet {
 
 	// method to get parameter, query database for existing user data and redirect
 	// to user edit page
-	private void showEditForm(HttpServletRequest request, HttpServletResponse response)
+	public void showEditForm(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, ServletException, IOException {
 		// get parameter passed in the URL
 		String orderid = request.getParameter("orderid");
@@ -166,7 +166,7 @@ public class OrderServlet extends HttpServlet {
 	}
 
 	// method to update the user table base on the form data
-	private void updateOrder(HttpServletRequest request, HttpServletResponse response)
+	public void updateOrder(HttpServletRequest request, HttpServletResponse response)
 	throws SQLException, IOException {
 	// Retrieve value from the request
 	String orderid = request.getParameter("orderid");
@@ -184,7 +184,7 @@ public class OrderServlet extends HttpServlet {
 	}
 	
 	// method to delete order
-	private void deleteOrder(HttpServletRequest request, HttpServletResponse response)
+	public void deleteOrder(HttpServletRequest request, HttpServletResponse response)
 	throws SQLException, IOException {
 	//Step 1: Retrieve value from the request
 	 String orderid = request.getParameter("orderid");
