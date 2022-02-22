@@ -12,7 +12,7 @@ pipeline {
   stages {
     
     stage('Maven Clone') {
-    when{
+    when {
     branch: "userTestBranch"
     }
       steps {
@@ -21,7 +21,7 @@ pipeline {
     }
     
     stage('Maven Clean') {
-     when{
+     when {
     branch: "userTestBranch"
     }
       steps {
@@ -30,7 +30,7 @@ pipeline {
     }
     
         stage('Maven Deploy') {
-         when{
+         when {
     branch: "userTestBranch"
     }
       steps {
