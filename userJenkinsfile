@@ -18,13 +18,6 @@ pipeline {
       }
     }
   
-    stage('Maven Clean') {
-
-      steps {
-        bat 'mvn clean install'
-      }
-    }
-    
    stage('Maven Deploy') {
   
       steps {
@@ -32,6 +25,13 @@ pipeline {
                               credentialsId: '74daef0d-88dc-490f-8892-8d3f678153d4')], 
                      war: '**/*.war',
                      contextPath: 'devopscrowd'
+      }
+    }
+    
+    stage('Maven Clean') {
+
+      steps {
+        bat 'mvn clean install'
       }
     }
     
