@@ -127,7 +127,7 @@
 						<suiteXmlFile>testng.xml</suiteXmlFile>
 					</suiteXmlFiles>
 				</configuration>
-			</plugin>
+			</plugin> 
 		</plugins>
 	</build>
 </project>
