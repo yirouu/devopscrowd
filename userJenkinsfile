@@ -17,15 +17,7 @@ pipeline {
         git url:'https://github.com/yirouu/devopscrowd.git'
       }
     }
-    
-    stage('Maven Clean') {
-
-      steps {
-        bat 'mvn clean install test'
-      }
-    }
-    
-        stage('Maven Deploy') {
+      stage('Maven Deploy') {
   
       steps {
           deploy adapters: [tomcat9(url: 'http://localhost:8090/', 
@@ -34,6 +26,14 @@ pipeline {
                      contextPath: 'devopscrowd'
       }
     }
+  
+    stage('Maven Clean') {
+
+      steps {
+        bat 'mvn clean install test'
+      }
+    }
+    
 
     
   }
