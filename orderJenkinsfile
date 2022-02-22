@@ -2,7 +2,7 @@ pipeline {
     agent {
     node {
       label ''
-      customWorkspace 'C:\Users\t4smi\OneDrive\Documents\projworkspace'
+      customWorkspace 'C:/Users/t4smi/OneDrive/Documents/projworkspace'
     }
   }
     stages {
