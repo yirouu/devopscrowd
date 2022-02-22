@@ -38,7 +38,7 @@ pipeline {
   }
   post {
     always {
-     
+      echo 'No converter for Publisher: hudson.plugins.deploy.DeployPublisher'
     }
 
   }
