@@ -29,7 +29,7 @@ public class userTest {
 	@Test(priority = 0)
 	public void checkWeb() {
 
-		webDriver.navigate().to("http://localhost:8090/devopscrowd-web-project/");
+		webDriver.navigate().to("http://localhost:8090/devopscrowd/");
 
 		// Assert the title to check that we are indeed in the correct website
 		Assert.assertEquals(webDriver.getTitle(), "crowd");
@@ -42,7 +42,7 @@ public class userTest {
 	@Test(priority = 1)
 	public void checkReg() {
 
-		webDriver.navigate().to("http://localhost:8090/devopscrowd-web-project/register.jsp");
+		webDriver.navigate().to("http://localhost:8090/devopscrowd/register.jsp");
 
 		Assert.assertEquals(webDriver.getTitle(), "Register");
 
@@ -62,7 +62,7 @@ public class userTest {
 	@Test(priority = 2)
 	public void checkLogin() {
 
-		webDriver.navigate().to("http://localhost:8090/devopscrowd-web-project/login.jsp");
+		webDriver.navigate().to("http://localhost:8090/devopscrowd/login.jsp");
 
 		Assert.assertEquals(webDriver.getTitle(), "Login");
 
@@ -79,7 +79,7 @@ public class userTest {
 	@Test(priority = 3)
 	public void checkEditProfile() {
 
-		webDriver.navigate().to("http://localhost:8090/devopscrowd-web-project/ProductViewServlet/dashboard");
+		webDriver.navigate().to("http://localhost:8090/devopscrowd/ProductViewServlet/dashboard");
 
 		// click profile on navbar
 		webDriver.findElement(By.xpath("//ul[2]/li[2]/a")).click();
@@ -115,7 +115,7 @@ public class userTest {
 	@Test(priority = 4)
 	public void checkLogout() {
 
-		webDriver.navigate().to("http://localhost:8090/devopscrowd-web-project/ProductViewServlet/dashboard");
+		webDriver.navigate().to("http://localhost:8090/devopscrowd/ProductViewServlet/dashboard");
 
 		// click logout button on navbar
 		webDriver.findElement(By.xpath("//li[3]/a")).click();
@@ -128,7 +128,7 @@ public class userTest {
 	@Test(priority = 5)
 	public void checkNewLogin() {
 
-		webDriver.navigate().to("http://localhost:8090/devopscrowd-web-project/login.jsp");
+		webDriver.navigate().to("http://localhost:8090/devopscrowd/login.jsp");
 
 		Assert.assertEquals(webDriver.getTitle(), "Login");
 
@@ -145,7 +145,7 @@ public class userTest {
 	@Test(priority = 6)
 	public void checkDeleteAcc() {
 
-		webDriver.navigate().to("http://localhost:8090/devopscrowd-web-project/ProductViewServlet/dashboard");
+		webDriver.navigate().to("http://localhost:8090/devopscrowd/ProductViewServlet/dashboard");
 
 		// click profile on navbar
 		webDriver.findElement(By.xpath("//ul[2]/li[2]/a")).click();
@@ -160,7 +160,7 @@ public class userTest {
 	@Test(priority = 7)
 	public void checkLoginAdmin() {
 
-		webDriver.navigate().to("http://localhost:8090/devopscrowd-web-project/login.jsp");
+		webDriver.navigate().to("http://localhost:8090/devopscrowd/login.jsp");
 
 		webDriver.findElement(By.xpath("//input[@name=\"yourEmail\"]")).sendKeys("admin@gmail.com");
 		webDriver.findElement(By.xpath("//input[@name=\"yourPassword\"]")).sendKeys("admin");
@@ -175,7 +175,7 @@ public class userTest {
 	@Test(priority = 8)
 	public void checkLogoutAdmin() {
 
-		webDriver.navigate().to("http://localhost:8090/devopscrowd-web-project/admin.jsp");
+		webDriver.navigate().to("http://localhost:8090/devopscrowd/admin.jsp");
 
 		// click logout button on navbar
 		webDriver.findElement(By.xpath("//li[3]/a")).click();
@@ -189,19 +189,19 @@ public class userTest {
 	@Test(priority = 9)
 	public void checkRedirect() {
 
-		webDriver.navigate().to("http://localhost:8090/devopscrowd-web-project/login.jsp");
+		webDriver.navigate().to("http://localhost:8090/devopscrowd/login.jsp");
 		webDriver.findElement(By.xpath("//h1/a")).click();
 		System.out.println("Redirected to Register");
 
-		webDriver.navigate().to("http://localhost:8090/devopscrowd-web-project/register.jsp");
+		webDriver.navigate().to("http://localhost:8090/devopscrowd/register.jsp");
 		webDriver.findElement(By.xpath("//h1/a")).click();
 		System.out.println("Redirected to Login");
 
-		webDriver.navigate().to("http://localhost:8090/devopscrowd-web-project/login.jsp");
+		webDriver.navigate().to("http://localhost:8090/devopscrowd/login.jsp");
 		webDriver.findElement(By.xpath("//ul[2]/li/a")).click();
 		System.out.println("Redirected to Register using navbar");
 
-		webDriver.navigate().to("http://localhost:8090/devopscrowd-web-project/register.jsp");
+		webDriver.navigate().to("http://localhost:8090/devopscrowd/register.jsp");
 		webDriver.findElement(By.xpath("//ul[2]/li[2]/a")).click();
 		System.out.println("Redirected to Login using navbar");
 

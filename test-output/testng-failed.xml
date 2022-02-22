@@ -5,8 +5,12 @@
     <classes>
       <class name="com.sddevops.devopscrowdd.userTest">
         <methods>
-          <include name="checkReg"/>
+          <include name="checkDeleteAcc"/>
+          <include name="checkNewLogin"/>
+          <include name="checkLogout"/>
           <include name="afterTest"/>
+          <include name="checkLogin"/>
+          <include name="checkEditProfile"/>
           <include name="beforeTest"/>
         </methods>
       </class> <!-- com.sddevops.devopscrowdd.userTest -->
