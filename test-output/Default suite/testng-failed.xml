@@ -3,14 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="OrderTest">
+      <class name="com.sddevops.devopscrowdd.userTest">
         <methods>
-          <include name="beforeTest"/>
+          <include name="checkReg"/>
           <include name="afterTest"/>
-          <include name="checkoutProduct"/>
-          <include name="checkOrders"/>
+          <include name="beforeTest"/>
         </methods>
-      </class> <!-- OrderTest -->
+      </class> <!-- com.sddevops.devopscrowdd.userTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
