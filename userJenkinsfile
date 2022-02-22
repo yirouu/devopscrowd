@@ -12,18 +12,27 @@ pipeline {
   stages {
     
     stage('Maven Clone') {
+    when{
+    branch: "userTestBranch"
+    }
       steps {
         git url:'https://github.com/yirouu/devopscrowd.git'
       }
     }
     
     stage('Maven Clean') {
+     when{
+    branch: "userTestBranch"
+    }
       steps {
         bat 'mvn clean install test'
       }
     }
     
         stage('Maven Deploy') {
+         when{
+    branch: "userTestBranch"
+    }
       steps {
           deploy adapters: [tomcat9(url: 'http://localhost:8090/', 
                               credentialsId: '74daef0d-88dc-490f-8892-8d3f678153d4')], 
