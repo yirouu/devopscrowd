@@ -5,7 +5,7 @@
 <head>
 <%@ include file="navbar.jsp"%>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Login</title>
 <link href="css/login.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
