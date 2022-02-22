@@ -5,6 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeTest;
 import org.testng.Assert;
@@ -13,7 +14,7 @@ import org.apache.commons.lang3.RandomStringUtils;
 
 public class userTest {
 	// declare Selenium WebDriver
-	private WebDriver webDriver;
+	private RemoteWebDriver webDriver;
 
 	// declare variables used for later
 	String tname = RandomStringUtils.randomAlphabetic(10);
