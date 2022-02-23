@@ -5,7 +5,7 @@
 		<classes>
 
 			<!-- <class name="com.sddevops.devopscrowdd.OrderTest" /> -->
-			<class name="com.sddevops.devopscrowdd.userTest" />
+			<!-- <class name="com.sddevops.devopscrowdd.userTest" /> -->
 
 		</classes>
 	</test> <!-- Test -->
