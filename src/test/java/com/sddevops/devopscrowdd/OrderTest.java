@@ -109,6 +109,7 @@ public class OrderTest {
 				.getText();
 		System.out.println("testing last:" + test);
 
+		// Testing delete
 		webDriver.findElement(By.xpath("/html/body/div/div/div/table/tbody/tr[last()]/td[10]/a")).click();
 		System.out.println("deleted order from admin side");
 
