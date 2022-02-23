@@ -109,13 +109,6 @@ public class OrderTest {
 				.getText();
 		System.out.println("testing last:" + test);
 
-		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-		Date date = new Date();
-		String dateToday = formatter.format(date);
-
-		System.out.println(dateToday);
-
-		Assert.assertTrue(test.contains(dateToday));
 		webDriver.findElement(By.xpath("/html/body/div/div/div/table/tbody/tr[last()]/td[10]/a")).click();
 		System.out.println("deleted order from admin side");
 
