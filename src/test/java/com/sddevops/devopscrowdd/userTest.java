@@ -1,9 +1,8 @@
 package com.sddevops.devopscrowdd;
 
 import org.openqa.selenium.By;
+
 //import necessary Selenium WebDriver classes
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.Test;
@@ -83,11 +82,11 @@ public class userTest {
 
 		// click profile on navbar
 		webDriver.findElement(By.xpath("//ul[2]/li[2]/a")).click();
-		//Assert.assertEquals(webDriver.getTitle(), "User Profile");
+		Assert.assertEquals(webDriver.getTitle(), "User Profile");
 
 		// click edit button
 		webDriver.findElement(By.xpath("//td/a[1]")).click();
-		//Assert.assertEquals(webDriver.getTitle(), "Edit Profile");
+		Assert.assertEquals(webDriver.getTitle(), "Edit Profile");
 
 		// edit details
 		webDriver.findElement(By.xpath("//input[@name=\"username\"]")).clear();
@@ -130,7 +129,7 @@ public class userTest {
 
 		webDriver.navigate().to("http://localhost:8090/devopscrowd/login.jsp");
 
-		//Assert.assertEquals(webDriver.getTitle(), "Login");
+		Assert.assertEquals(webDriver.getTitle(), "Login");
 
 		webDriver.findElement(By.xpath("//input[@name=\"yourEmail\"]")).sendKeys(eemail);
 		webDriver.findElement(By.xpath("//input[@name=\"yourPassword\"]")).sendKeys(epassword);
@@ -149,7 +148,7 @@ public class userTest {
 
 		// click profile on navbar
 		webDriver.findElement(By.xpath("//ul[2]/li[2]/a")).click();
-		//Assert.assertEquals(webDriver.getTitle(), "User Profile");
+		Assert.assertEquals(webDriver.getTitle(), "User Profile");
 
 		// click delete
 		webDriver.findElement(By.xpath("//td/a[2]")).click();
