@@ -32,6 +32,7 @@ public class OrderTest {
 
 	@Test(priority = 0)
 	public void checklogin() {
+		
 		webDriver.navigate().to("http://localhost:8090/devopscrowd/login.jsp");
 		WebElement email = webDriver.findElement(By.xpath("/html/body/form/h1[1]/input"));
 		WebElement password = webDriver.findElement(By.xpath("/html/body/form/h1[2]/input"));
@@ -78,7 +79,7 @@ public class OrderTest {
 		System.out.println("quantity: " + we2.getAttribute("value"));
 
 		webDriver.findElement(By.xpath("/html/body/div/div/div/a")).click();
-
+		System.out.println("checkout product success");
 	}
 
 	@Test(priority = 3)
@@ -105,17 +106,6 @@ public class OrderTest {
 			System.out.println("edited order status to approved");
 		}
 
-		String test = webDriver.findElement(By.xpath("/html/body/div/div/div/table/tbody/tr[last()]/td[2]/p"))
-				.getText();
-		System.out.println("testing last:" + test);
-
-		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-		Date date = new Date();
-		String dateToday = formatter.format(date);
-
-		System.out.println(dateToday);
-
-		Assert.assertTrue(test.contains(dateToday));
 		webDriver.findElement(By.xpath("/html/body/div/div/div/table/tbody/tr[last()]/td[10]/a")).click();
 		System.out.println("deleted order from admin side");
 
