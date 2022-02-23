@@ -13,7 +13,7 @@ import org.apache.commons.lang3.RandomStringUtils;
 
 public class userTest {
 	// declare Selenium WebDriver
-	private RemoteWebDriver webDriver;
+	private WebDriver webDriver;
 
 	// declare variables used for later
 	String tname = RandomStringUtils.randomAlphabetic(10);
