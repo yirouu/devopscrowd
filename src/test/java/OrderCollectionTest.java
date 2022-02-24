@@ -49,6 +49,7 @@ class OrderCollectionTest {
 		List<Orders> testOrders = oc.getOrders();
 		assertEquals(testOrders.size(), ORDERS_SIZE);
 		oc.add(o5);
+		System.out.println("testing");
 	}
 
 	@Test
@@ -56,6 +57,7 @@ class OrderCollectionTest {
 		int id = 2;
 		oc.findOrdersById(id);
 		oc.findOrdersById(0);
+		System.out.println("testing");
 	}
 
 	@Test
@@ -75,6 +77,7 @@ class OrderCollectionTest {
 
 		oc.editOrder(orderid, orderDateTime, orderUserId, productId, orderStatus, name, price, image, username, email,
 				address, postal);
+		System.out.println("testing");
 		
 	}
 
