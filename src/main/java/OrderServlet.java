@@ -8,6 +8,8 @@ import java.util.List;
 import javax.servlet.RequestDispatcher;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -128,6 +130,9 @@ public class OrderServlet extends HttpServlet {
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 		}
+		
+		PrintWriter out = response.getWriter();
+		out.write("retrieved all orders successfully...");
 		// Step 5.4: Set the users list into the listUsers attribute to be pass to the
 		// orderManagement.jsp
 		request.setAttribute("listOrders", orders);
@@ -160,6 +165,9 @@ public class OrderServlet extends HttpServlet {
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 		}
+		
+		PrintWriter out = response.getWriter();
+		out.write("retrieved successfull...");
 		// Step 5: Set existingUser to request and serve up the userEdit form
 		request.setAttribute("order", existingOrder);
 		request.getRequestDispatcher("/editOrder.jsp").forward(request, response);
@@ -179,6 +187,9 @@ public class OrderServlet extends HttpServlet {
 	 statement.setString(2, orderid);
 	 int i = statement.executeUpdate();
 	 }
+	 
+	 PrintWriter out = response.getWriter();
+	 out.write("update successfull...");
 	 // redirect back to OrderServlet
 	 response.sendRedirect("http://localhost:8090/devopscrowd/OrderServlet/dashboard");
 	}
@@ -194,6 +205,9 @@ public class OrderServlet extends HttpServlet {
 	 statement.setString(1, orderid);
 	 int i = statement.executeUpdate();
 	 }
+	 
+	 PrintWriter out = response.getWriter();
+	 out.write("delete successfull...");
 	 //Step 3: redirect back to OrderServlet dashboard
 	 response.sendRedirect("http://localhost:8090/devopscrowd/OrderServlet/dashboard");
 	}
