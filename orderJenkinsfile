@@ -4,13 +4,31 @@ pipeline {
       label ''
       customWorkspace 'C:/Users/t4smi/OneDrive/Documents/projworkspace'
     }
-  }
-    stages {
-        stage('Hello') {
+  } 
+  tools{
+    	maven 'maven 3.8.2'
+    }
+   stages {
+        stage('clone') {
             steps {
-                echo 'Hello World'
+                git branch:'orderTestBranch', url: 'https://github.com/yirouu/devopscrowd.git'
+            }
+        }
+         stage('build test') {
+            steps {
+               	bat "mvn clean install"
+            }
+        }
+         stage('deploy') {
+            steps {
+               	deploy adapters: [tomcat9(credentialsId: '39576d8f-e15d-409a-9f87-dbd306257d31', path: '', url: 'http://localhost:8090')], contextPath: 'devopscrowd', war: '**/*.war'
             }
         }
     }
-}
+    post {
+    	success{
+    	    bat "mvn clean install"	  
+    	}
+    }
 
+}
