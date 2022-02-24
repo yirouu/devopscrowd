@@ -106,6 +106,12 @@ public class OrderTest {
 			System.out.println("edited order status to approved");
 		}
 
+		String test = webDriver.findElement(By.xpath("/html/body/div/div/div/table/tbody/tr[last()]/td[2]/p"))
+				.getText();
+		System.out.println("testing last:" + test);
+
+		// Testing delete
+
 		webDriver.findElement(By.xpath("/html/body/div/div/div/table/tbody/tr[last()]/td[10]/a")).click();
 		System.out.println("deleted order from admin side");
 
