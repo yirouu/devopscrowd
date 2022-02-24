@@ -32,4 +32,40 @@ public class OrderCollection {
 		}
 	}
 
+	public Orders findOrdersById(int id) {
+		for (Orders o : orders) {
+			if (o.getOrderid() == id)
+				return o;
+		}
+		return null;
+	}
+
+	public Orders editOrder(int orderid, String orderDateTime, int orderUserId, int productId, String orderStatus,
+			String name, int price, String image, String username, String email, String address, int postal) {
+		for (Orders o : orders) {
+			if (o.getOrderid() == orderid)
+				o.setOrderid(orderid);
+				o.setOrderDateTime(orderDateTime);
+				o.setOrderUserId(orderUserId);
+				o.setProductId(productId);
+				o.setOrderStatus(orderStatus);
+				o.setName(name);
+				o.setPrice(price);
+				o.setImage(image);
+				o.setUsername(username);
+				o.setEmail(email);
+				o.setAddress(address);
+				o.setPostal(postal);
+				return o;
+		}
+		return null;
+	}
+
+	public void deleteOrder(int id) {
+		for (Orders o : orders) {
+			if (o.getOrderid() == id) {
+				orders.remove(id);
+			}
+		}
+	}
 }
