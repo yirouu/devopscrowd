@@ -9,12 +9,12 @@ pipeline {
     	maven 'maven 3.8.2'
     }
    stages {
-        stage('clone') {
+        stage('build') {
             steps {
                 git branch:'orderTestBranch', url: 'https://github.com/yirouu/devopscrowd.git'
             }
         }
-         stage('build test') {
+         stage('test') {
             steps {
                	bat "mvn clean install"
             }
@@ -27,7 +27,15 @@ pipeline {
     }
     post {
     	success{
-    	    bat "mvn clean install"	  
+    	    bat "mvn clean install"	 
+    	    mail to: 'devopsprojtest@gmail.com', 
+    	    subject:"Pipeline Success :${currentBuild.fullDisplayName}", 
+    	    body:"${env.BUILD_URL}"
+    	}
+    	failure{
+    	    mail to: 'devopsprojtest@gmail.com', 
+    	    subject:"Failed Pipeline:${currentBuild.fullDisplayName}", 
+    	    body:"Something is wrong with ${env.BUILD_URL}"
     	}
     }
 
