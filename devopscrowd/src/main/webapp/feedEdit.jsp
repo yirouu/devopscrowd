@@ -7,7 +7,7 @@ crossorigin="anonymous">
 
 <nav class="navbar navbar-expand-md navbar-light">
 <div>
-<a class="navbar-brand"> Feedback </a> 
+<a class="navbar-brand"> Feedback </a>
 </div>
 <ul class="navbar-nav">
 <li><a href="<%=request.getContextPath()%>/FeedbackServlet/dashboard"
