@@ -41,28 +41,28 @@ class OrderCollectionTest {
 	@Test
 	void testGetOrders() {
 		oc.getOrders();
+		System.out.println(ORDERS_SIZE);
 	}
 
 	@Test
 	void testAdd() {
-		int capacity = 20;
-		List<Orders> testOrders = oc.getOrders();
-		assertEquals(testOrders.size(), ORDERS_SIZE);
 		oc.add(o5);
-		System.out.println("testing");
+		assertEquals(oc.getOrders().size(), 4);
 	}
 
 	@Test
 	void testFindOrdersById() {
-		int id = 2;
+		int id = 002;
 		oc.findOrdersById(id);
+		assertEquals(oc.findOrdersById(id), o2);
 		oc.findOrdersById(0);
-		System.out.println("testing");
+		assertEquals(oc.findOrdersById(0), null);
 	}
 
 	@Test
 	void testEditOrder() {
 		int orderid = 001;
+		int orderID = 01;
 		String orderDateTime = "2022-01-28 16:50:47";
 		int orderUserId = 01;
 		int productId = 01;
@@ -77,8 +77,6 @@ class OrderCollectionTest {
 
 		oc.editOrder(orderid, orderDateTime, orderUserId, productId, orderStatus, name, price, image, username, email,
 				address, postal);
-		System.out.println("testing");
-		
 	}
 
 	@Test
