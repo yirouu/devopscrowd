@@ -14,7 +14,7 @@ pipeline {
     stage('Git Clone') {
     
       steps {
-       git  branch: 'userTestBranch', url:'https://github.com/yirouu/devopscrowd.git'
+       git url:'https://github.com/yirouu/devopscrowd.git'
       }
     }
     
