@@ -47,8 +47,11 @@ pipeline {
    
 }
   post {
-     always {
-        bat 'docker run -p 80:8090 yirouu/devopscrowd:2.0.0'
+     success {
+        deploy adapters: [tomcat9(url: 'http://localhost:8090', 
+                              credentialsId: '74daef0d-88dc-490f-8892-8d3f678153d4')], 
+                     war: '**/*.war',
+                     contextPath: 'devopscrowd',onFailure:false
 
          }
 
