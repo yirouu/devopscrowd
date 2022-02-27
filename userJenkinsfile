@@ -11,7 +11,7 @@ pipeline {
   }
   stages {
     
-    stage('Maven Clone') {
+    stage('Git Clone') {
     
       steps {
        git  branch: 'userTestBranch', url:'https://github.com/yirouu/devopscrowd.git'
@@ -19,7 +19,7 @@ pipeline {
     }
     
     
-     stage('Maven Clean') {
+     stage('Maven Clean Install Test') {
       steps {
         bat 'mvn clean install test'
       }
