@@ -2,56 +2,56 @@
 <testng-results ignored="0" total="10" passed="10" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2022-02-23T02:23:37 SGT" name="Default suite" finished-at="2022-02-23T02:23:45 SGT" duration-ms="8457">
+  <suite started-at="2022-02-23T18:21:57 SGT" name="Default suite" finished-at="2022-02-23T18:22:05 SGT" duration-ms="7035">
     <groups>
     </groups>
-    <test started-at="2022-02-23T02:23:37 SGT" name="Default test" finished-at="2022-02-23T02:23:45 SGT" duration-ms="8457">
+    <test started-at="2022-02-23T18:21:57 SGT" name="Default test" finished-at="2022-02-23T18:22:05 SGT" duration-ms="7035">
       <class name="com.sddevops.devopscrowdd.userTest">
-        <test-method is-config="true" signature="beforeTest()[pri:0, instance:com.sddevops.devopscrowdd.userTest@3aefe5e5]" started-at="2022-02-23T02:23:37 SGT" name="beforeTest" finished-at="2022-02-23T02:23:38 SGT" duration-ms="1383" status="PASS">
+        <test-method is-config="true" signature="beforeTest()[pri:0, instance:com.sddevops.devopscrowdd.userTest@7f010382]" started-at="2022-02-23T18:21:57 SGT" name="beforeTest" finished-at="2022-02-23T18:21:59 SGT" duration-ms="1286" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeTest -->
-        <test-method signature="checkWeb()[pri:0, instance:com.sddevops.devopscrowdd.userTest@3aefe5e5]" started-at="2022-02-23T02:23:38 SGT" name="checkWeb" finished-at="2022-02-23T02:23:40 SGT" duration-ms="1603" status="PASS">
+        <test-method signature="checkWeb()[pri:0, instance:com.sddevops.devopscrowdd.userTest@7f010382]" started-at="2022-02-23T18:21:59 SGT" name="checkWeb" finished-at="2022-02-23T18:21:59 SGT" duration-ms="393" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- checkWeb -->
-        <test-method signature="checkReg()[pri:1, instance:com.sddevops.devopscrowdd.userTest@3aefe5e5]" started-at="2022-02-23T02:23:40 SGT" name="checkReg" finished-at="2022-02-23T02:23:41 SGT" duration-ms="1384" status="PASS">
+        <test-method signature="checkReg()[pri:1, instance:com.sddevops.devopscrowdd.userTest@7f010382]" started-at="2022-02-23T18:21:59 SGT" name="checkReg" finished-at="2022-02-23T18:22:01 SGT" duration-ms="1580" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- checkReg -->
-        <test-method signature="checkLogin()[pri:2, instance:com.sddevops.devopscrowdd.userTest@3aefe5e5]" started-at="2022-02-23T02:23:41 SGT" name="checkLogin" finished-at="2022-02-23T02:23:43 SGT" duration-ms="1530" status="PASS">
+        <test-method signature="checkLogin()[pri:2, instance:com.sddevops.devopscrowdd.userTest@7f010382]" started-at="2022-02-23T18:22:01 SGT" name="checkLogin" finished-at="2022-02-23T18:22:02 SGT" duration-ms="1361" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- checkLogin -->
-        <test-method signature="checkEditProfile()[pri:3, instance:com.sddevops.devopscrowdd.userTest@3aefe5e5]" started-at="2022-02-23T02:23:43 SGT" name="checkEditProfile" finished-at="2022-02-23T02:23:44 SGT" duration-ms="1192" status="PASS">
+        <test-method signature="checkEditProfile()[pri:3, instance:com.sddevops.devopscrowdd.userTest@7f010382]" started-at="2022-02-23T18:22:02 SGT" name="checkEditProfile" finished-at="2022-02-23T18:22:03 SGT" duration-ms="1129" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- checkEditProfile -->
-        <test-method signature="checkLogout()[pri:4, instance:com.sddevops.devopscrowdd.userTest@3aefe5e5]" started-at="2022-02-23T02:23:44 SGT" name="checkLogout" finished-at="2022-02-23T02:23:44 SGT" duration-ms="129" status="PASS">
+        <test-method signature="checkLogout()[pri:4, instance:com.sddevops.devopscrowdd.userTest@7f010382]" started-at="2022-02-23T18:22:03 SGT" name="checkLogout" finished-at="2022-02-23T18:22:03 SGT" duration-ms="97" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- checkLogout -->
-        <test-method signature="checkNewLogin()[pri:5, instance:com.sddevops.devopscrowdd.userTest@3aefe5e5]" started-at="2022-02-23T02:23:44 SGT" name="checkNewLogin" finished-at="2022-02-23T02:23:44 SGT" duration-ms="172" status="PASS">
+        <test-method signature="checkNewLogin()[pri:5, instance:com.sddevops.devopscrowdd.userTest@7f010382]" started-at="2022-02-23T18:22:03 SGT" name="checkNewLogin" finished-at="2022-02-23T18:22:04 SGT" duration-ms="149" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- checkNewLogin -->
-        <test-method signature="checkDeleteAcc()[pri:6, instance:com.sddevops.devopscrowdd.userTest@3aefe5e5]" started-at="2022-02-23T02:23:44 SGT" name="checkDeleteAcc" finished-at="2022-02-23T02:23:44 SGT" duration-ms="174" status="PASS">
+        <test-method signature="checkDeleteAcc()[pri:6, instance:com.sddevops.devopscrowdd.userTest@7f010382]" started-at="2022-02-23T18:22:04 SGT" name="checkDeleteAcc" finished-at="2022-02-23T18:22:04 SGT" duration-ms="167" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- checkDeleteAcc -->
-        <test-method signature="checkLoginAdmin()[pri:7, instance:com.sddevops.devopscrowdd.userTest@3aefe5e5]" started-at="2022-02-23T02:23:44 SGT" name="checkLoginAdmin" finished-at="2022-02-23T02:23:45 SGT" duration-ms="372" status="PASS">
+        <test-method signature="checkLoginAdmin()[pri:7, instance:com.sddevops.devopscrowdd.userTest@7f010382]" started-at="2022-02-23T18:22:04 SGT" name="checkLoginAdmin" finished-at="2022-02-23T18:22:04 SGT" duration-ms="369" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- checkLoginAdmin -->
-        <test-method signature="checkLogoutAdmin()[pri:8, instance:com.sddevops.devopscrowdd.userTest@3aefe5e5]" started-at="2022-02-23T02:23:45 SGT" name="checkLogoutAdmin" finished-at="2022-02-23T02:23:45 SGT" duration-ms="75" status="PASS">
+        <test-method signature="checkLogoutAdmin()[pri:8, instance:com.sddevops.devopscrowdd.userTest@7f010382]" started-at="2022-02-23T18:22:04 SGT" name="checkLogoutAdmin" finished-at="2022-02-23T18:22:04 SGT" duration-ms="77" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- checkLogoutAdmin -->
-        <test-method signature="checkRedirect()[pri:9, instance:com.sddevops.devopscrowdd.userTest@3aefe5e5]" started-at="2022-02-23T02:23:45 SGT" name="checkRedirect" finished-at="2022-02-23T02:23:45 SGT" duration-ms="276" status="PASS">
+        <test-method signature="checkRedirect()[pri:9, instance:com.sddevops.devopscrowdd.userTest@7f010382]" started-at="2022-02-23T18:22:04 SGT" name="checkRedirect" finished-at="2022-02-23T18:22:04 SGT" duration-ms="269" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- checkRedirect -->
-        <test-method is-config="true" signature="afterTest()[pri:0, instance:com.sddevops.devopscrowdd.userTest@3aefe5e5]" started-at="2022-02-23T02:23:45 SGT" name="afterTest" finished-at="2022-02-23T02:23:45 SGT" duration-ms="120" status="PASS">
+        <test-method is-config="true" signature="afterTest()[pri:0, instance:com.sddevops.devopscrowdd.userTest@7f010382]" started-at="2022-02-23T18:22:04 SGT" name="afterTest" finished-at="2022-02-23T18:22:05 SGT" duration-ms="119" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterTest -->
