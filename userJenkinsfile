@@ -24,27 +24,7 @@ pipeline {
         bat 'mvn clean install test'
       }
     }
-    
-  
-  
-    stage('Docker Image') {
-       steps {
-       bat 'docker build -t yirouu/devopscrowd:2.0.0 .'
-     }       
-    }
-   
-    stage('Docker Push') {
-       steps {
-           withCredentials([string(credentialsId: 'docker-hub-pw', variable: 'dockerhubpw')]) {
-    bat "docker login -u yirouu -p ${dockerhubpw}"
-}
-         
-       bat 'docker push yirouu/devopscrowd:2.0.0'
-        }       
-    }
 
- 
-   
 }
   post {
      success {
